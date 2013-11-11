@@ -20,12 +20,15 @@ public class splashFrame extends JFrame {
 	public splashFrame() throws IOException { 
 		//Constructor
 		backgroundImage = ImageIO.read(new File("temp welcome screen.png"));
-		//Overrides the frame's content pane with the background image. 
-		setContentPane(new JPanel(new BorderLayout()) {
-	        @Override public void paintComponent(Graphics g) {
-	            g.drawImage(backgroundImage, 0, 0, null);
-	        }
-	    });
+//		backgroundImage = backgroundImage.getScaledInstance(1280, 720, Image.SCALE_SMOOTH);
+		//Overrides the frame's content pane with the background image.
+		
+//		this.setContentPane(new JLabel(new ImageIcon(backgroundImage)));
+//		setContentPane(new JPanel(new BorderLayout()) {
+//	        @Override public void paintComponent(Graphics g) {
+//	            g.drawImage(backgroundImage, 0, 0, null);
+//	        }
+//	    });
 		
 		//Initialization
 		lesson = new JButton();
@@ -36,7 +39,13 @@ public class splashFrame extends JFrame {
 		setSize(1280, 720); 
 		setTitle("MuseBot"); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this); // draw the image
+		}
 	
 	
 }

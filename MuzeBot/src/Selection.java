@@ -8,7 +8,7 @@ public class Selection {
 	 */
 	public static void main(String[] args) throws IOException {
 		splashFrame splashSplash = new splashFrame();
-		splashSplash.show(true);
+		splashSplash.setVisible(true);
 
 	}
 
