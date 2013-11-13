@@ -1,62 +1,61 @@
   import java.awt.*;
+import java.awt.image.BufferedImage;
+
 import java.io.*;
 
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
-import com.adobe.acrobat.*;
-import com.adobe.acrobat.file.ByteArraySource;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+import java.io.Serializable;
+
+import javax.imageio.*;;
 
 public class Lesson extends JPanel {
 	
-	  /**
-	 * 
-	 */
+	  
+	  
 	private static final long serialVersionUID = 1L;
-	private Viewer viewer;
+    private Image image;
+    private JPanel pane;
 
-	  public Lesson( String filename )
-	  {
-	    // Set the layout for this panel
-	    this.setLayout( new BorderLayout() );
+    public Lesson() {
+        try {
+            this.image = ImageIO.read(new File("Lesson 1.jpg"));
+            
+            image = image.getScaledInstance(1240, 1616, Image.SCALE_SMOOTH);
 
-	    // Create the viewer
-	    try
-	    {
-	      viewer = new Viewer();
-	      FileInputStream fis = new FileInputStream( filename );
-	      viewer.setDocumentInputStream( fis );
-	      this.add( viewer, BorderLayout.CENTER );
-	      viewer.activate();
 
-	      String page1 = viewer.getTextForPage( 0 );
-	      System.out.println( "page1: \n" + page1 );
-	    }
-	    catch( Exception e )
-	    {
-	      e.printStackTrace();
-	    }
+        	
+        }catch(IOException ex) {
+           System.out.println("No file!");
+        }
+
+        this.pane = new JPanel() {
+            private static final long serialVersionUID = 1L;
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(image, 0, 0, null);
+            }
+        };
+       
+        pane.setPreferredSize(new Dimension(image.getWidth(pane), image.getHeight(pane)));
+        JScrollPane sp = new JScrollPane(pane);
+        setLayout(new BorderLayout());
+        add(sp, BorderLayout.CENTER);
+        
+        
+        pane.add(new JButton("Previous Lesson"));
+        pane.add(new JButton("Next Lesson"));
+    }
+
 	  }
-
-	  public static void main( String[] args )
-	  {
-	    if( args.length == 0 )
-	    {
-	      System.out.println( "Usage: PDFDocument <filename>" );
-	      System.exit( 0 );
-	    }
-
-	    String filename = args[ 0 ];
-	    //PDFDocument pdf = new PDFDocument( filename );
-
-	    // Create our frame
-	    JFrame frame = new JFrame( "PDF Viewer" );
-	    frame.setSize( 1024, 768 );
-	    Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-	    frame.setLocation( d.width/2 - 512, d.height/2 - 384 );
-	    //frame.getContentPane().add( pdf );
-	    frame.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
-	    frame.setVisible( true );
-	  }
-	}
+	
 
