@@ -38,7 +38,7 @@ public class Lesson extends JPanel {
         }
 
         this.pane = new JPanel() {
-            private static final long serialVersionUID = 1L;
+          
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
