@@ -1,4 +1,5 @@
   import java.awt.*;
+
 import java.awt.image.BufferedImage;
 
 import java.io.*;
@@ -30,8 +31,6 @@ public class Lesson extends JPanel {
             this.image = ImageIO.read(new File("Lesson 1.jpg"));
             
             image = image.getScaledInstance(1240, 1616, Image.SCALE_SMOOTH);
-
-
         	
         }catch(IOException ex) {
            System.out.println("No file!");

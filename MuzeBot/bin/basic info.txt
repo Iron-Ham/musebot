@@ -1,0 +1,16 @@
+OK, The sheet music class is coming along. At the moment it only displays properly when its origin is 0,0.. i'll fix that later I'm getting tired for now..
+
+The entire component should be scalable but I haven't had time to play around with it and check it yet.
+
+The implementation is fairly simple you just add it to your frame after you initialize it the way you do everything else, i.e. --  
+SheetMusicComponent smc = new SheetMusicC....; blah blah
+add(SheetMusicComponent);
+
+a sheet music component must be initialized with a SheetMusic object.
+
+I have it all set up to be working but I still need to get the font thing going so for now I'm just using normal strings to be replaced with the font once that's working.
+
+
+I included an example implementation of how it works.
+
+Cheers!!
