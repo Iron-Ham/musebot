@@ -24,8 +24,7 @@ public class Selection {
 //         f.setVisible(true);
          
          
-         
-         Practice practice = new Practice();
+         Practice practice = new Practice("Practice");
          practice.setSize(1280, 720);
          practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          practice.setResizable(false);

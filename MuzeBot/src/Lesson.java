@@ -51,8 +51,8 @@ public class Lesson extends JPanel {
         add(sp, BorderLayout.CENTER);
         
         
-        pane.add(new JButton("Previous Lesson"));
-        pane.add(new JButton("Next Lesson"));
+        pane.add(new JButton("Previous Lesson"),BorderLayout.SOUTH);
+        pane.add(new JButton("Next Lesson"),BorderLayout.SOUTH);
     }
 
 	  }
