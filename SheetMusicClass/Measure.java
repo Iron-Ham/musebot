@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Measure {
 	List<Note> notes;
 	
@@ -25,8 +24,8 @@ public class Measure {
 		Measure m = new Measure();
 		//while there aren't enough notes in the measure keep adding random notes
 		while (m.beatsToTimeSignatureRatio(timeSignature) != 1) {
-			Note n = new Note();
-			n = n.randomNote();
+			Note n 	= new Note();
+			n 		= n.randomNote();
 			m.addNote(n);
 			//If there are too many beats in the measure then remove a note
 			if (m.beatsToTimeSignatureRatio(timeSignature) > 1)

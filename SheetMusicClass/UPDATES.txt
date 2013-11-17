@@ -1,0 +1,5 @@
+-The SheetMusicComponent can now be scaled to ANY size and still display properly.
+
+-The origin can be set at any point and it will still draw appropriately.
+
+-Added the Bravura font and got it working. Make sure the Bravura.otf file is in the working directory and then the sheet music class will auto load it.

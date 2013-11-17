@@ -1,4 +1,3 @@
-import java.awt.*;
 import javax.swing.*;
 
 
@@ -11,21 +10,10 @@ public class ImplementationExample extends JFrame {
 		
 		
 		SheetMusic sm = new SheetMusic("4/4");
+		
 		sm = sm.generateRandomSheetMusic(2);
-		SheetMusicComponent smc = new SheetMusicComponent(sm, 0, 0, 500, 200, this);
-		setLayout(new BorderLayout());
 		
-		//JLabel label = new JLabel();
-		//label.setText("WeedWacker");
-		//JLabel label1 = new JLabel();
-		//label1.setText("WeedWacker");
-		//JLabel label2 = new JLabel();
-		//label2.setText("WeedWacker");
-		//add(label, BorderLayout.EAST);
-		//add(label1, BorderLayout.WEST);
-		//add(label2, BorderLayout.NORTH);
-		//add(smc, BorderLayout.CENTER);
+		SheetMusicComponent smc = new SheetMusicComponent(sm, 50, 60, 600, 150, this);
 		add(smc);
-		
 	}
 }

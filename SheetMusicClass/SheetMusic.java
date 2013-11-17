@@ -10,8 +10,8 @@ public class SheetMusic {
 	
 	//Constructors
 	public SheetMusic(String timeSignature) {
-		measures = new ArrayList<Measure>();
-		this.timeSignature = timeSignature;
+		measures 			= new ArrayList<Measure>();
+		this.timeSignature 	= timeSignature;
 		}
 	
 	//Getters and Setters

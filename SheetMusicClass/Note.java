@@ -17,6 +17,7 @@ public class Note {
 	//Getters and Setters
 	public String getNote()						{	return note;				}
 	public String getDuration() 				{	return duration;			}
+	public String getAccent()					{	return accent;				}
 	public void setNote(String note)			{	this.note = note;			}
 	public void setDuration(String duration)	{	this.duration = duration;	}
 	public void setAccent(String accent)		{	this.accent = accent;		}
@@ -54,7 +55,7 @@ public class Note {
 
 	//Returns the string representation of a duration based on integer value
 	public String durationByIntValue(int intVal) {
-		String[] durations = { "whole", "half", "quarter", "eigth", "sixteenth", "thirtysecond" };
+		String[] durations = { "whole", "half", "quarter", "eighth", "sixteenth", "thirtysecond" };
 		return durations[intVal];
 	}
 	
@@ -67,7 +68,7 @@ public class Note {
 			returnVal = 0.5;
 		else if(duration.equals("quarter"))
 			returnVal = 0.25;
-		else if(duration.equals("eigth"))
+		else if(duration.equals("eighth"))
 			returnVal = 0.125;
 		else if(duration.equals("sixteenth"))
 			returnVal = 0.0625;
@@ -88,6 +89,17 @@ public class Note {
 	//A string representation of the note object
 	public String toString() {
 		return this.note + " " + this.duration + " " + this.accent + " " + String.valueOf(isDotted);
+	}
+	
+	//Get an integer representation of the note
+	public static int getIntValueForNote(String note) {
+		int val = -1;
+		for(int j = 0; j < listOfNotes.length; j++) {
+			if(note.equals(listOfNotes[j])) {
+				val = j;
+			}
+		}
+		return val;
 	}
 	
 	//A static string of all the possible notes we will accommodate in our program
