@@ -18,6 +18,7 @@ public class Note {
 	public String getNote()						{	return note;				}
 	public String getDuration() 				{	return duration;			}
 	public String getAccent()					{	return accent;				}
+	public boolean dotted()						{	return isDotted;			}
 	public void setNote(String note)			{	this.note = note;			}
 	public void setDuration(String duration)	{	this.duration = duration;	}
 	public void setAccent(String accent)		{	this.accent = accent;		}
@@ -27,7 +28,7 @@ public class Note {
 	public Note randomNote() {
 		Random r = new Random();
 		int intNoteVal = r.nextInt(25);
-		int intDuraVal = r.nextInt(6);
+		int intDuraVal = r.nextInt(9);
 		
 		int accentVal  = r.nextInt(100);
 		int dottedVal  = r.nextInt(100);
@@ -54,8 +55,9 @@ public class Note {
 	}
 
 	//Returns the string representation of a duration based on integer value
+	//Put more "half" "quarter" and "eighth" in their so that they are more likely to occur than the rarer notes
 	public String durationByIntValue(int intVal) {
-		String[] durations = { "whole", "half", "quarter", "eighth", "sixteenth", "thirtysecond" };
+		String[] durations = { "whole", "half", "half", "quarter", "quarter", "eighth", "eighth", "sixteenth", "thirtysecond" };
 		return durations[intVal];
 	}
 	

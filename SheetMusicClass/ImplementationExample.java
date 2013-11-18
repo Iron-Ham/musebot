@@ -6,14 +6,14 @@ public class ImplementationExample extends JFrame {
 
 	public ImplementationExample() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(800,600);
+		setSize(1000,600);
 		
 		
 		SheetMusic sm = new SheetMusic("4/4");
 		
-		sm = sm.generateRandomSheetMusic(2);
+		sm = sm.generateRandomSheetMusic(4);
 		
-		SheetMusicComponent smc = new SheetMusicComponent(sm, 50, 60, 600, 150, this);
+		SheetMusicComponent smc = new SheetMusicComponent(sm, 50, 60, 900, 200, this);
 		add(smc);
 	}
 }

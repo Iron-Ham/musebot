@@ -27,12 +27,47 @@ public class SheetMusicComponent extends Canvas {
 		drawStaff(g);
 		//draw the clefs
 		drawClefs(g);
+		//draw the time signature
+		drawTimeSignature(g);
 		//draw the measures and notes
 		for(int i = 0; i < sheetMusic.numberOfMeasures(); i++)
 			drawMeasure(g, i);
 		//draw the measure separators (if applicable)
 		drawMeasureSeparators(g);
 		
+	}
+	
+	public static int getBravuraIntForInt(int index) {
+		int[] map = new int[10];
+		map[0] = 59936;
+		map[1] = 59937;
+		map[2] = 59939;
+		map[3] = 59940;
+		map[4] = 59941;
+		map[5] = 59943;
+		map[6] = 59947;
+		map[7] = 59949;
+		map[8] = 59951;
+		map[9] = 59952;
+		return map[index];
+	}
+	public void drawTimeSignature(Graphics g) {
+		String smts = sheetMusic.getTimeSignature();
+		String[] 	ts 			= smts.split("/");
+		int 		numerator 	= getBravuraIntForInt(Integer.valueOf(ts[0]));
+		int 		denominator = getBravuraIntForInt(Integer.valueOf(ts[1]));
+		File f = new File("Bravura.otf");
+		Font font;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, f);
+			font = font.deriveFont((float) (size.height*.5));
+			g.setFont(font);
+			g.drawChars(Character.toChars(numerator), 0, 1, (int) (size.width*.05 + origin.width+size.height*.075), (int) (origin.height+size.height*.05 + size.height*.075*3));
+			g.drawChars(Character.toChars(denominator), 0, 1, (int) (size.width*.05 + origin.width+size.height*.075), (int) (origin.height+size.height*.05 + size.height*.075*5));
+		}
+		catch(FontFormatException | IOException e)
+		{
+		}
 	}
 	
 	public void drawClefs(Graphics g) {
@@ -62,17 +97,20 @@ public class SheetMusicComponent extends Canvas {
 			int numOfNotes 	= sheetMusic.getMeasure(measure).numberOfNotes();
 			for(int i = 0; i < numOfNotes; i++) {
 				Note note = sheetMusic.getMeasure(measure).getNote(i);
-				//String note 		= sheetMusic.getMeasure(measure).getNote(i).getNote();
 				double startingAt 	= (size.width*.1 + size.width*.9/sheetMusic.numberOfMeasures()*measure);
-				double x 			= (int) (startingAt + size.width*.9/(numOfNotes+1)*(i+1)/sheetMusic.numberOfMeasures() + origin.width - size.width*.075/2);
+				double x 			= (int) (startingAt + size.width*.9/(numOfNotes+1)*(i+1)/sheetMusic.numberOfMeasures() + origin.width - size.width*.075/8);
 				double intNoteVal	= Note.getIntValueForNote(note.getNote());
 				double y 			= size.height*.05 + (.075*(size.height)*intNoteVal/2);
 				
 				if(intNoteVal >= 24 || intNoteVal <= 0 || intNoteVal == 12)
-					g.drawLine((int)(x-.075/4*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height), 
+					g.drawLine((int)(x-.075/3*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height), 
 							(int)(x+.075*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height));
-				System.out.println(note.getNote());
-				System.out.println(note.getDuration());
+				
+				
+
+				//draw the dot if applicable
+				if(note.dotted())
+					g.drawChars(Character.toChars(57878), 0, 1, (int)(x + .075*size.height), (int)(size.height - y + origin.height + size.height*.075/10));
 				//draw the duration
 				if(note.getDuration() == "whole")
 					g.drawChars(Character.toChars(57857), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
@@ -155,10 +193,6 @@ public class SheetMusicComponent extends Canvas {
 		g.setColor(Color.WHITE);
 		g.fillRect(origin.width, origin.height, size.width, size.height);
 	}
-	
-	
-	
-	
 	public Dimension preferredSize() {
 		return minimumSize();
 	 	}

@@ -20,6 +20,7 @@ public class SheetMusic {
 	public void addMeasure(Measure measure, int index) 	{	measures.add(index, measure);	}
 	public Measure getMeasure(int index)				{	return measures.get(index);		}
 	public int numberOfMeasures()						{	return measures.size();			}
+	public String getTimeSignature()					{	return timeSignature;			}
 	
 	
 	//Generates a random sheetmusic object with the specified number of measures
