@@ -19,6 +19,7 @@ List QuizList = new LinkedList();
 			  
 			  return true;
 		  }else{
+			  
 			  database.createNewFile();
 			  
 			  return false;
@@ -26,10 +27,24 @@ List QuizList = new LinkedList();
 		
 	}
 	
-	public double GetAverageScoresOfQuizByNumber(int Number){
+	public double GetAverageScoresOfQuizesByNumber(int Number){
+		int tries = 0;
+		double sum = 0.00;
+		double avg = 0.00;
 		
+		for (int i = 0; i<QuizList.size(); i++){
+			String HighlightQuiz = QuizList.get(i).toString();
+			
+			if (Integer.valueOf(HighlightQuiz.charAt(0)) == Number){
+				tries = tries + 1;
+				String[] QuizScore = HighlightQuiz.split("\t");
+				sum = sum + Double.parseDouble(QuizScore[1]);
+			}
+		}
 		
-		return 0.00;
+		avg = sum / tries;
+		
+		return avg;
 		
 	}
 	
@@ -37,7 +52,7 @@ public List GetHighLowScoresOfQuizByNumber(int Number){
 	
 	double QL = 0.00;
 	double QH = 0.00;
-	/////////////////
+	
 	List<Double> a = new LinkedList<Double>();
 	a.add(QL);
 	a.add(QH);
