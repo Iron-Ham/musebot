@@ -50,25 +50,99 @@ List QuizList = new LinkedList();
 		
 	}
 	
-public List GetHighScoreOfQuizesByNumber(int Number){
+public double GetHighScoreOfQuizesByNumber(int Number){
 	
 	double QL = 0.00;
 	double QH = 0.00;
 	
-	List<Double> a = new LinkedList<Double>();
-	a.add(QL);
-	a.add(QH);
+
+	List adaptList = new LinkedList();
+	
 	
 	for (int i = 0; i<QuizList.size(); i++){
 		String HighlightQuiz = QuizList.get(i).toString();
+		Double score = Double.valueOf(HighlightQuiz.split("\t")[1]);
 		
 		if (Integer.valueOf(HighlightQuiz.charAt(0)) == Number){
-			
+			adaptList.add(score);
+		}
+		
+		if (Integer.valueOf(HighlightQuiz.charAt(1)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(2)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(3)) == Number){
+			adaptList.add(score);
+		}
+		if (Integer.valueOf(HighlightQuiz.charAt(4)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(5)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(6)) == Number){
+			adaptList.add(score);
 		}
 	}
+	double MAX = Collections.max(adaptList);
 	
-	return a;	
+	
+	return MAX;	
 	}
+
+public double GetHighScoreOfQuizesByNumber(int Number){
+	
+	double QL = 0.00;
+	double QH = 0.00;
+	
+
+	List adaptList = new LinkedList();
+	
+	
+	for (int i = 0; i<QuizList.size(); i++){
+		String HighlightQuiz = QuizList.get(i).toString();
+		Double score = Double.valueOf(HighlightQuiz.split("\t")[1]);
+		
+		if (Integer.valueOf(HighlightQuiz.charAt(0)) == Number){
+			adaptList.add(score);
+		}
+		
+		if (Integer.valueOf(HighlightQuiz.charAt(1)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(2)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(3)) == Number){
+			adaptList.add(score);
+		}
+		if (Integer.valueOf(HighlightQuiz.charAt(4)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(5)) == Number){
+			adaptList.add(score);
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(6)) == Number){
+			adaptList.add(score);
+		}
+	}
+	double MIN = Collections.min(adaptList);
+	
+	
+	return MIN;	
+	}
+
+
 
 public boolean AddScoreOfQuiz(int Number, double Score, String filename) throws IOException{
 	File database = new File(filename);
