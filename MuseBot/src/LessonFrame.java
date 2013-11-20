@@ -16,6 +16,7 @@ public class LessonFrame extends JFrame {
 	private String imgPath;
 	private JLabel divider;
 	private JLabel btnGradient;
+	private JLabel navBar;
 	private JLabel lessonContent;
 	private JButton[] btnArray;
 	
@@ -32,6 +33,7 @@ public class LessonFrame extends JFrame {
 		btnArray = new JButton[6];
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/Divider.png").toString()));
 		btnGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/LessonPanel_bg.png").toString()));
+		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/navBar.png").toString()));
 		JLayeredPane mypane = new JLayeredPane(); 
 		lessonContent = new JLabel(image);		
 		JScrollPane scrollPane = new JScrollPane();
@@ -40,14 +42,17 @@ public class LessonFrame extends JFrame {
 		//Set sizes and locations
 		btnGradient.setSize(260, 720);
 		btnGradient.setLocation(1020, 0);
+		navBar.setSize(100, 720);
+		navBar.setLocation(0,0);
 		divider.setSize(20, 720);
 		divider.setLocation(1000, 0);
-		scrollPane.setLocation(0,0);
-		scrollPane.setSize(1000, 720);
+		scrollPane.setLocation(100,0);
+		scrollPane.setSize(900, 720);
 		
 		//Add to the panel and frame 
 		mypane.add(btnGradient, new Integer(0));
 		mypane.add(divider, new Integer(1));
+		mypane.add(navBar, new Integer(2));
 		add(scrollPane);
 		add(mypane);
 	}
@@ -55,11 +60,11 @@ public class LessonFrame extends JFrame {
 	public void picturePrep() { 
 		double imageWidth = image.getIconWidth();
 		int imageHeight = image.getIconHeight();
-		imageWidth = 1000/imageWidth;
+		imageWidth = 880/imageWidth;
 		imageHeight = (int) (imageWidth * imageHeight);
 		System.out.println("Height = " + imageHeight + "\n Width = " + imageWidth);
 		Image img = image.getImage();
-		image = new ImageIcon(img.getScaledInstance(1000, imageHeight, Image.SCALE_SMOOTH));
+		image = new ImageIcon(img.getScaledInstance(880, imageHeight, Image.SCALE_SMOOTH));
 	}
 	
 	public static void main(String[] args) throws IOException { 
