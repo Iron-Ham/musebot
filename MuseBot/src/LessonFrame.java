@@ -18,7 +18,7 @@ public class LessonFrame extends JFrame {
 	private JLabel btnGradient;
 	private JLabel navBar;
 	private JLabel lessonContent;
-	private JButton[] btnArray;
+	private JButton[] lessonBtns;
 	
 	public LessonFrame() throws IOException { 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,7 +30,7 @@ public class LessonFrame extends JFrame {
 		imgPath = "Extras/Lessons/Lesson1.png";
 		image = new ImageIcon(ImageIO.read(new File(imgPath)));
 		picturePrep();
-		btnArray = new JButton[6];
+		lessonBtns = new JButton[6];
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Divider.png").toString()));
 		btnGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/LessonPanel_bg.png").toString()));
 		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/navBar.png").toString()));
@@ -38,6 +38,9 @@ public class LessonFrame extends JFrame {
 		lessonContent = new JLabel(image);		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportView(lessonContent);
+		for (int i = 0; i < lessonBtns.length; i++) { 
+			lessonBtns[i] = new JButton(); 
+		}
 		
 		//Set sizes and locations
 		btnGradient.setSize(260, 720);
