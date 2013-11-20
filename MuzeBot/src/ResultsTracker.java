@@ -16,7 +16,7 @@ List QuizList = new LinkedList();
 			
 			  Scanner in = new Scanner(database).useDelimiter("[\t|\n|\r]+");
 			  while (in.hasNext()){
-				QuizList.add(in.nextLine()); 
+			  QuizList.add(in.nextLine()); 
 			  }
 			  
 			  return true;
@@ -96,7 +96,48 @@ public double GetHighScoreOfQuizesByNumber(int Number){
 	return MAX;	
 	}
 
-public double GetHighScoreOfQuizesByNumber(int Number){
+public int GetQuizAttempts(int Number){
+int attempts = 0;
+	
+	
+	for (int i = 0; i<QuizList.size(); i++){
+		String HighlightQuiz = QuizList.get(i).toString();
+		Double score = Double.valueOf(HighlightQuiz.split("\t")[1]);
+		
+		if (Integer.valueOf(HighlightQuiz.charAt(0)) == Number){
+			attempts=attempts+1;
+		}
+		
+		if (Integer.valueOf(HighlightQuiz.charAt(1)) == Number){
+			attempts=attempts+1;
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(2)) == Number){
+			attempts=attempts+1;
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(3)) == Number){
+			attempts=attempts+1;
+		}
+		if (Integer.valueOf(HighlightQuiz.charAt(4)) == Number){
+			attempts=attempts+1;
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(5)) == Number){
+			attempts=attempts+1;
+		}
+
+		if (Integer.valueOf(HighlightQuiz.charAt(6)) == Number){
+			attempts=attempts+1;
+		}
+	}
+	return attempts; 
+	
+}
+
+
+
+public double GetLowScoreOfQuizesByNumber(int Number){
 	
 	double QL = 0.00;
 	double QH = 0.00;
