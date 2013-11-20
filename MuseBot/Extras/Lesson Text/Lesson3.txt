@@ -1,0 +1,1 @@
+Vertical black bars called bar lines divide the staff into measures. This staff has been split into two measures. Time signatures define the amount and type of note that each measure contains. The first measure is in 4/4 time and the second measure is in

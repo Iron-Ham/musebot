@@ -1,0 +1,1 @@
+A half step (or "semitone") is the distance from one key on the keyboard to the next adjacent key. Key 1 and key 2 are a half step away from each other since they are next to each other. However, a half step is not always a white key to a black key. In 

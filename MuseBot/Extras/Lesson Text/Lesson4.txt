@@ -1,0 +1,1 @@
+Rests represent periods of silence in a measure. Each type of rest shares a duration with a certain type of note. For example, both a quarter rest and a quarter note occupy the same amount of time. While the note would make a sound, the rest is silent. 

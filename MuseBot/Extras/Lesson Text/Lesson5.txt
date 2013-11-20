@@ -1,0 +1,1 @@
+Augmentation dots and tenuto ties are two types of markings used to alter a note's duration. A dot increases a note's value by one half. Since an eighth note is half the duration of the quarter note, the dotted quarter notes above are worth one quarter

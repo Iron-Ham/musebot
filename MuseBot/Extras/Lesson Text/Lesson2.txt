@@ -1,0 +1,1 @@
+The length of time that a note is played is called its note duration, which is determined by the type of note. The whole note is the left-most note in the image to the right. It has the longest duration in modern music. The half note, to the right of the 
