@@ -85,7 +85,7 @@ public class LessonFrame extends JFrame {
 			lessonBtns[i].setBorderPainted(false);
 			mypane.add(lessonBtns[i], new Integer(4));
 		}
-		add(scrollPane);
+		mypane.add(scrollPane);
 		add(mypane);
 	}
 	
