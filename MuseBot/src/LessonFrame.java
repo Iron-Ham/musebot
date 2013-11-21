@@ -18,6 +18,7 @@ public class LessonFrame extends JFrame {
 	private JLabel btnGradient;
 	private JLabel navBar;
 	private JLabel lessonContent;
+	private JButton[] navBtns;
 	private JButton[] lessonBtns;
 	
 	public LessonFrame() throws IOException { 
@@ -30,6 +31,7 @@ public class LessonFrame extends JFrame {
 		imgPath = "Extras/Lessons/Lesson1.png";
 		image = new ImageIcon(ImageIO.read(new File(imgPath)));
 		picturePrep();
+		navBtns = new JButton[4];
 		lessonBtns = new JButton[6];
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
 		btnGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/LessonPanel_bg.png").toString()));
@@ -38,12 +40,27 @@ public class LessonFrame extends JFrame {
 		lessonContent = new JLabel(image);		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportView(lessonContent);
-		for (int i = 0; i < lessonBtns.length; i++) { 
-			lessonBtns[i] = new JButton(); 
+		for (int i = 0; i < navBtns.length; i++) { 
+			navBtns[i] = new JButton();
 		}
 		
 		//Set sizes and locations
 		btnGradient.setSize(260, 720);
+		navBtns[0].setSize(100, 94);
+		navBtns[0].setLocation(0,0);
+		navBtns[1].setSize(100, 104);
+		navBtns[1].setLocation(0,101);
+		navBtns[2].setSize(100, 104);
+		navBtns[2].setLocation(0, 210);
+		navBtns[3].setSize(100, 102);
+		navBtns[3].setLocation(0, 320);
+		int x = 0;
+		for (int i = 0; i < lessonBtns.length; i++) { 
+			lessonBtns[i] = new JButton();
+			x = (120 * i);
+			lessonBtns[i].setLocation(1020, x);
+			lessonBtns[i].setSize(260, 120);
+		}
 		btnGradient.setLocation(1020, 0);
 		navBar.setSize(100, 720);
 		navBar.setLocation(0,0);
@@ -56,6 +73,18 @@ public class LessonFrame extends JFrame {
 		mypane.add(btnGradient, new Integer(0));
 		mypane.add(divider, new Integer(1));
 		mypane.add(navBar, new Integer(2));
+		for (int i = 0; i < navBtns.length; i++) { 
+			navBtns[i].setOpaque(false);
+			navBtns[i].setContentAreaFilled(false);
+			navBtns[i].setBorderPainted(false);
+			mypane.add(navBtns[i], new Integer(3));
+		}
+		for (int i = 0; i < lessonBtns.length; i++) { 
+			lessonBtns[i].setOpaque(false);
+			lessonBtns[i].setContentAreaFilled(false);
+			lessonBtns[i].setBorderPainted(false);
+			mypane.add(lessonBtns[i], new Integer(4));
+		}
 		add(scrollPane);
 		add(mypane);
 	}
