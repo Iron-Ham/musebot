@@ -50,6 +50,27 @@ List QuizList = new LinkedList();
 		
 	}
 	
+	public double GetAverageScoresOfQuizes(int Number){
+		int tries = 0;
+		double sum = 0.00;
+		double avg = 0.00;
+		
+		for (int i = 0; i<QuizList.size(); i++){
+			String HighlightQuiz = QuizList.get(i).toString();
+			
+			
+				tries = tries + 1;
+				String[] QuizScore = HighlightQuiz.split("\t");
+				sum = sum + Double.parseDouble(QuizScore[1]);
+			}
+		
+		
+		avg = sum / tries;
+		
+		return avg;
+		
+	}
+	
 public double GetHighScoreOfQuizesByNumber(int Number){
 	
 	double QL = 0.00;
@@ -91,7 +112,28 @@ public double GetHighScoreOfQuizesByNumber(int Number){
 		}
 	}
 	double MAX = Collections.max(adaptList);
+	adaptList.clear();
 	
+	return MAX;	
+	}
+
+public double GetHighScoreOfQuizes(int Number){
+	
+	double QL = 0.00;
+	double QH = 0.00;
+	
+
+	List adaptList = new LinkedList();
+	
+	
+	for (int i = 0; i<QuizList.size(); i++){
+		String HighlightQuiz = QuizList.get(i).toString();
+		Double score = Double.valueOf(HighlightQuiz.split("\t")[1]);
+			adaptList.add(score);
+	}
+	
+	double MAX = Collections.max(adaptList);
+	adaptList.clear();
 	
 	return MAX;	
 	}
