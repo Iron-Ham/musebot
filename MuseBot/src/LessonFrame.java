@@ -35,7 +35,7 @@ public class LessonFrame extends JFrame {
 		lessonBtns = new JButton[6];
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
 		btnGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/LessonPanel_bg.png").toString()));
-		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/navBar.png").toString()));
+		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/navBar_Lesson.png").toString()));
 		JLayeredPane mypane = new JLayeredPane(); 
 		lessonContent = new JLabel(image);		
 		JScrollPane scrollPane = new JScrollPane();
