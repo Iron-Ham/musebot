@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -9,7 +10,7 @@ public class mainFrame extends JFrame {
 	private JLabel navBar;
 	private JButton[] navButtons;
 	private JLayeredPane currentPane;
-	public mainFrame() { 
+	public mainFrame() throws IOException { 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		setSize(1280, 720);
 		setResizable(false);
@@ -24,11 +25,21 @@ public class mainFrame extends JFrame {
 		navBar.setLocation(0,0);
 		primaryPane.add(navBar, new Integer(0));
 		buttonInitialization();
+		for (int i =0; i < navButtons.length; i++) { 
+			primaryPane.add(navButtons[i], new Integer(1));
+		}
+		LessonPanel somePanel = new LessonPanel();
+		LessonListener listen = new LessonListener(somePanel);
+		currentPane.add(somePanel, new Integer(0));
+		currentPane.setLocation(100,0);
+		currentPane.setSize(1180, 720);
+		primaryPane.add(currentPane, new Integer(1));
 		
 		add(primaryPane);
+
 	}
 	
-	public static void main(String[] args) { 
+	public static void main(String[] args) throws IOException { 
 		mainFrame frame = new mainFrame();
 		frame.setVisible(true);
 	}
@@ -49,8 +60,6 @@ public class mainFrame extends JFrame {
 		navButtons[3].setSize(100, 102);
 		navButtons[3].setLocation(0, 320);
 		navButtons[3].setIcon(new ImageIcon(new File("Extras/Resources/Frame/quizButton.png").toString()));
-		for (int i =0; i < navButtons.length; i++) { 
-			primaryPane.add(navButtons[i], new Integer(1));
-		}
+		
 	}
 }
