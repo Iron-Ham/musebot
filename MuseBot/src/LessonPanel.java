@@ -44,22 +44,6 @@ public class LessonPanel extends JLayeredPane {
 		add(divider, new Integer(1));
 		add(scrollPane, new Integer(2));
 	}
-	
-	public String getImgPath() {
-		return imgPath;
-	}
-
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
-	}
-
-	public JButton[] getLessonBtns() {
-		return lessonBtns;
-	}
-
-	public void setLessonBtns(JButton[] lessonBtns) {
-		this.lessonBtns = lessonBtns;
-	}
 
 	private void buttonInitialization() { 
 		int x = 0;
