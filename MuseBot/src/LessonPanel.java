@@ -13,7 +13,7 @@ public class LessonPanel extends JLayeredPane {
 	private static final long serialVersionUID = 7237085649944010724L;
 	private JLabel lessonContent;
 	private JLabel btnGradient;
-	private ImageIcon image;
+	private ImageIcon images[];
 	private JLabel divider;
 	private String imgPath;
 	public JButton[] lessonBtns;
@@ -22,16 +22,15 @@ public class LessonPanel extends JLayeredPane {
 	
 	public LessonPanel() throws IOException { 
 		setSize(1180, 720);
-		counter = 3;
-		
+		counter = 3;		
 		//Initialization
+		images = new ImageIcon[6];
+		images();
 		lessonBtns = new JButton[6];
 		imgPath = new String();
 		imgPath = "Extras/Lessons/Lesson1.png";
-		image = new ImageIcon(ImageIO.read(new File(imgPath)));
-		picturePrep();
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
-		lessonContent = new JLabel(image);
+		lessonContent = new JLabel(images[0]);
 		buttonInitialization();
 		btnGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Lesson/LessonPanel_bg.png").toString()));
 		scrollPane = new JScrollPane();
@@ -81,10 +80,8 @@ public class LessonPanel extends JLayeredPane {
 		}
 	}
 	
-	public void changeImg(String path) throws IOException { 
-		image = new ImageIcon(ImageIO.read(new File(path)));
-		picturePrep();
-		lessonContent = new JLabel(image);
+	public void changeImg(int i) throws IOException { 
+		lessonContent = new JLabel(images[i]);
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(lessonContent);
 		scrollPane.setLocation(0, 0);
@@ -98,13 +95,29 @@ public class LessonPanel extends JLayeredPane {
 			lessonBtns[i].addActionListener(listener);
 		}
 	}
-	public void picturePrep() { 
-		double imageWidth = image.getIconWidth();
-		int imageHeight = image.getIconHeight();
+	public void picturePrep(ImageIcon icon, int i) { 
+		double imageWidth = icon.getIconWidth();
+		int imageHeight = icon.getIconHeight();
 		imageWidth = 880/imageWidth;
 		imageHeight = (int) (imageWidth * imageHeight);
-		Image img = image.getImage();
-		image = new ImageIcon(img.getScaledInstance(880, imageHeight, Image.SCALE_SMOOTH));
+		Image img = icon.getImage();
+		images[i] = new ImageIcon(img.getScaledInstance(880, imageHeight, Image.SCALE_SMOOTH));
 	}
+	public void images() throws IOException { 
+		for (int i =0; i< images.length; i++) { 
+			images[i] = new ImageIcon();
+		}
+		images[0] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson1.png")));
+		images[1] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson2.png")));
+		images[2] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson3.png")));
+		images[3] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson4.png")));
+		images[4] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson5.png")));
+		images[5] = new ImageIcon(ImageIO.read(new File("Extras/Lessons/Lesson6.png")));
+		for (int i = 0; i < images.length; i++) { 
+			picturePrep(images[i], i);
+		}
+
+	}
+	
 	
 }

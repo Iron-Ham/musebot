@@ -17,22 +17,22 @@ public class LessonListener implements ActionListener {
 			JButton button = (JButton) source;
 			try { 
 				if (button == panel.lessonBtns[0]) { 
-					panel.changeImg("Extras/Lessons/Lesson1.png");
+					panel.changeImg(0);
 				}
 				else if (button == panel.lessonBtns[1]) { 
-					panel.changeImg("Extras/Lessons/Lesson2.png");
+					panel.changeImg(1);
 				}
 				else if (button == panel.lessonBtns[2]) { 
-					panel.changeImg("Extras/Lessons/Lesson3.png");
+					panel.changeImg(2);
 				}
 				else if (button == panel.lessonBtns[3]) { 
-					panel.changeImg("Extras/Lessons/Lesson4.png");
+					panel.changeImg(3);
 				}
 				else if (button == panel.lessonBtns[4]) {
-					panel.changeImg("Extras/Lessons/Lesson5.png");
+					panel.changeImg(4);
 				}
 				else if (button == panel.lessonBtns[5]) { 
-					panel.changeImg("Extras/Lessons/Lesson6.png");
+					panel.changeImg(5);
 				}
 			}catch (IOException ex) { 
 				ex.printStackTrace();
