@@ -34,7 +34,6 @@ public class mainFrame extends JFrame {
 		currentPane.setLocation(100,0);
 		currentPane.setSize(1180, 720);
 		primaryPane.add(currentPane, new Integer(1));
-		
 		add(primaryPane);
 
 	}
@@ -60,6 +59,5 @@ public class mainFrame extends JFrame {
 		navButtons[3].setSize(100, 102);
 		navButtons[3].setLocation(0, 320);
 		navButtons[3].setIcon(new ImageIcon(new File("Extras/Resources/Frame/quizButton.png").toString()));
-		
 	}
 }
