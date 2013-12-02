@@ -6,10 +6,11 @@ public class tester {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		ImplementationExample f = new ImplementationExample();
-		f.setVisible(true);
-		
+
+		Quiz quiz = new Quiz();
+		QuizListener l = new QuizListener(quiz);
+		quiz.registerListeners(l);
+		quiz.setVisible(true);
 	}
 
 }

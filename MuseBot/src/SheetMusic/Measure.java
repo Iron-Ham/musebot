@@ -1,12 +1,15 @@
+package SheetMusic;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Measure {
 	List<Note> notes;
+	boolean useDot;
 	
 	//Constructors
 	public Measure()						{	notes = new ArrayList<Note>();	}
 	public Measure(String usingTimeSignature)	{
+		useDot = true;
 		notes = new ArrayList<Note>();
 		}
 	
@@ -16,7 +19,7 @@ public class Measure {
 	public void addNote(Note note, int index) 	{	notes.add(index, note);		}
 	public Note getNote(int index)				{	return notes.get(index);	}
 	public int numberOfNotes()					{	return notes.size();		}
-	
+	public void useDots(boolean b)				{	useDot = b;				}
 	
 	
 	//Generates a random measure based on a time signature given in a string format
@@ -26,7 +29,9 @@ public class Measure {
 		while (m.beatsToTimeSignatureRatio(timeSignature) != 1) {
 			Note n 	= new Note();
 			n 		= n.randomNote();
-			m.addNote(n);
+			if(useDot == false && n.dotted())	{}
+			else
+				m.addNote(n);
 			//If there are too many beats in the measure then remove a note
 			if (m.beatsToTimeSignatureRatio(timeSignature) > 1)
 				m.getNotes().remove(m.numberOfNotes()-1);
@@ -34,6 +39,40 @@ public class Measure {
 		
 		return m;
 	}
+	
+	//Generates a random measure based on a time signature given in a string format
+		public Measure generateRandomRestMeasure(String timeSignature) {
+			Measure m = new Measure();
+			//while there aren't enough notes in the measure keep adding random notes
+			while (m.beatsToTimeSignatureRatio(timeSignature) != 1) {
+				Note n 	= new Note();
+				n 		= n.randomRest();
+				if(!n.getNote().equals("rest"))	{}
+				else
+					m.addNote(n);
+				//If there are too many beats in the measure then remove a note
+				if (m.beatsToTimeSignatureRatio(timeSignature) > 1)
+					m.getNotes().remove(m.numberOfNotes()-1);
+			}
+			
+			return m;
+		}
+		//Generates a random measure based on a time signature given in a string format
+		public Measure generateRandomDotsMeasure(String timeSignature) {
+			Measure m = new Measure();
+			//while there aren't enough notes in the measure keep adding random notes
+			while (m.beatsToTimeSignatureRatio(timeSignature) != 1) {
+				Note n 	= new Note();
+				n 		= n.randomNote();
+				if(n.dotted())
+					m.addNote(n);
+				//If there are too many beats in the measure then remove a note
+				if (m.beatsToTimeSignatureRatio(timeSignature) > 1)
+					m.getNotes().remove(m.numberOfNotes()-1);
+			}
+			
+			return m;
+		}
 	
 	//Returns the ratio of beats in the measure to time signature
 	//Used for generating random notes to know when to stop adding notes

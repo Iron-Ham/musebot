@@ -1,3 +1,4 @@
+package SheetMusic;
 import java.util.Random;
 
 public class Note {
@@ -52,6 +53,54 @@ public class Note {
 			n.setAccent("none");
 		
 		return n;
+	}
+	
+	public Note randomRest() {
+		Random r = new Random();
+		Note n = new Note();
+		n.setNote("rest");
+		int whichRest = r.nextInt(8);
+		n.setDuration(durationByIntValue(whichRest));
+		n.setDotted(false);
+		n.setAccent("none");
+		return n;
+	}
+	
+	public static String getStringRepresentationOfBeatsForDouble(double d) {
+		//System.out.println(d);
+		if(d == 1)
+			return "1";
+		if(d == 1.5)
+			return "1.5";
+		if(d == 2)
+			return "2";
+		if(d == 3)
+			return "3";
+		if(d == 0.75)
+			return "0.75";
+		if(d == 0.1875)
+			return "three sixteenths";
+		if(d == 0.375)
+			return "three eighths";
+		if(d == 4)
+			return "4";
+		if(d == 5)
+			return "5";
+		if(d == 6)
+			return "6";
+		if(d == 7)
+			return "7";
+		if(d == 8)
+			return "8";
+		if(d == .5)
+			return "half";
+		if(d == .25)
+			return "quarter";
+		if(d == .125)
+			return "eighth";
+		if(d == .075)
+			return "sixteenth";
+		return "1";
 	}
 
 	//Returns the string representation of a duration based on integer value
