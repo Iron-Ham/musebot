@@ -28,13 +28,16 @@ public class mainFrame extends JFrame {
 		for (int i =0; i < navButtons.length; i++) { 
 			primaryPane.add(navButtons[i], new Integer(1));
 		}
-		LessonPanel somePanel = new LessonPanel();
-		LessonListener listen = new LessonListener(somePanel);
-		currentPane.add(somePanel, new Integer(0));
-		currentPane.setLocation(100,0);
-		currentPane.setSize(1180, 720);
-		primaryPane.add(currentPane, new Integer(1));
+		//LessonPanel somePanel = new LessonPanel();
+		//LessonListener listen = new LessonListener(somePanel);
 		
+		Quiz q = new Quiz();
+		QuizListener ql = new QuizListener(q);
+		q.registerListeners(ql);
+		q.setBounds(100,0,1180,720);
+		
+		primaryPane.add(q, new Integer(2));
+
 		add(primaryPane);
 
 	}

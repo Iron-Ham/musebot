@@ -1,3 +1,4 @@
+package SheetMusic;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -71,7 +72,7 @@ public class SheetMusicComponent extends Canvas {
 	}
 	
 	public void drawClefs(Graphics g) {
-		File f = new File("Bravura.otf");
+		File f = new File("src/SheetMusic/Bravura.otf");
 		Font font;
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, f);
@@ -87,7 +88,7 @@ public class SheetMusicComponent extends Canvas {
 	
 	//goes through all the notes in the specified measure and draws them in the correct location
 	public void drawMeasure(Graphics g, int measure) {
-		File f = new File("Bravura.otf");
+		File f = new File("src/SheetMusic/Bravura.otf");
 		Font font;
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, f);
@@ -102,34 +103,52 @@ public class SheetMusicComponent extends Canvas {
 				double intNoteVal	= Note.getIntValueForNote(note.getNote());
 				double y 			= size.height*.05 + (.075*(size.height)*intNoteVal/2);
 				
-				if(intNoteVal >= 24 || intNoteVal <= 0 || intNoteVal == 12)
+				if((intNoteVal >= 24 || intNoteVal <= 0 || intNoteVal == 12) && !note.getNote().equals("rest"))
 					g.drawLine((int)(x-.075/3*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height), 
 							(int)(x+.075*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height));
 				
 				
-
-				//draw the dot if applicable
-				if(note.dotted())
-					g.drawChars(Character.toChars(57878), 0, 1, (int)(x + .075*size.height), (int)(size.height - y + origin.height + size.height*.075/10));
-				//draw the duration
-				if(note.getDuration() == "whole")
-					g.drawChars(Character.toChars(57857), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
-				if(note.getDuration() == "half")
-					g.drawChars(Character.toChars(57858), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
-				if(note.getDuration() == "quarter")
-					g.drawChars(Character.toChars(57860), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
-				if(note.getDuration() == "eighth")
-					g.drawChars(Character.toChars(57862), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
-				if(note.getDuration() == "sixteenth")
-					g.drawChars(Character.toChars(57864), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
-				if(note.getDuration() == "thirtysecond")
-					g.drawChars(Character.toChars(57866), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+//57862
+				//System.out.println(note.getNote());
 				
-				//draw the accent
-				if(note.getAccent() == "sharp")
-					g.drawChars(Character.toChars(9839), 0, 1, (int) (x - .05*size.height), (int)(size.height - y - 1 + .075*size.height/8 + origin.height));
-				else if(note.getAccent() == "flat")
-					g.drawChars(Character.toChars(9837), 0, 1, (int) (x - .05*size.height), (int)(size.height - y - 1 + .075*size.height/8 + origin.height));
+				if(!note.getNote().equals("rest")) {
+					//draw the dot if applicable
+					if(note.dotted())
+						g.drawChars(Character.toChars(57878), 0, 1, (int)(x + .075*size.height), (int)(size.height - y + origin.height + size.height*.075/10));
+					//draw the duration
+					if(note.getDuration() == "whole")
+						g.drawChars(Character.toChars(57857), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					if(note.getDuration() == "half")
+						g.drawChars(Character.toChars(57858), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					if(note.getDuration() == "quarter")
+						g.drawChars(Character.toChars(57860), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					if(note.getDuration() == "eighth")
+						g.drawChars(Character.toChars(57862), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					if(note.getDuration() == "sixteenth")
+						g.drawChars(Character.toChars(57864), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					if(note.getDuration() == "thirtysecond")
+						g.drawChars(Character.toChars(57866), 0, 1, (int)x, (int)(size.height - y + origin.height + size.height*.075/8));
+					
+					//draw the accent
+					if(note.getAccent() == "sharp")
+						g.drawChars(Character.toChars(9839), 0, 1, (int) (x - .05*size.height), (int)(size.height - y - 1 + .075*size.height/8 + origin.height));
+					else if(note.getAccent() == "flat")
+						g.drawChars(Character.toChars(9837), 0, 1, (int) (x - .05*size.height), (int)(size.height - y - 1 + .075*size.height/8 + origin.height));
+				}
+				else if(note.getNote().equals("rest")) {
+					//draw the duration
+					double yPos = size.height*.05 + origin.height + size.height*.075*3 + size.height*.075/8;
+					if(note.getDuration() == "whole")
+						g.drawChars(Character.toChars(58658), 0, 1, (int)x, (int)(yPos-size.height*.075));
+					if(note.getDuration() == "half")
+						g.drawChars(Character.toChars(58659), 0, 1, (int)x, (int)yPos);
+					if(note.getDuration() == "quarter")
+						g.drawChars(Character.toChars(58660), 0, 1, (int)x, (int)yPos);
+					if(note.getDuration() == "eighth")
+						g.drawChars(Character.toChars(58661), 0, 1, (int)x, (int)yPos);
+					if(note.getDuration() == "sixteenth")
+						g.drawChars(Character.toChars(58662), 0, 1, (int)x, (int)yPos);
+				}
 			}
 			
 			
