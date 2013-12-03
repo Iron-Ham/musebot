@@ -34,27 +34,27 @@ public class Quiz1 extends JLayeredPane {
 		
 		
 		if(quizNumber == 1) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1.txt");
 			initQuiz1Questions();
 		}
 		else if(quizNumber == 2) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz2.txt");
 			initQuiz2Questions();
 		}
 		else if(quizNumber == 3) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz3.txt");
 			initQuiz3Questions();
 		}
 		else if(quizNumber == 4) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz4.txt");
 			initQuiz4Questions();
 		}
 		else if(quizNumber == 5) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz5.txt");
 			initQuiz5Questions();
 		}
 		else if(quizNumber == 6) {
-			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1questions.txt");
+			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz6.txt");
 		}
 		
 		Collections.shuffle(qlist);

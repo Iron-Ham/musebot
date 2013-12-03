@@ -1,7 +1,9 @@
 import java.awt.event.*;
 import java.io.IOException;
-
+import javax.swing.*;
+import java.io.*;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import Practice.Practice;
 import Practice.PracticeListener;
@@ -10,12 +12,14 @@ import Practice.PracticeListener;
 public class mainFrameListener implements ActionListener {
 	
 	mainFrame frame;
-	
+	JLabel bg; 
 	int currentPane;
 	
 	public mainFrameListener(mainFrame f) {
 		frame = f;
+		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract.png").toString()));
 		currentPane = 0;
+		frame.getPrimaryPane().add(bg, new Integer(4));
 	}
 
 	@Override
