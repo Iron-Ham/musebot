@@ -1,0 +1,18 @@
+What do augmentation dots do?
+Increase the note by one-half of its value
+Increase the note by one half note
+Decrease the note by one-half of its value
+Decrease the note by one half note
+Increase the note by one-half of its value
+What is the purpose of tenuto ties?
+Decrease the note by one half note
+Increase the note by one-half of its value
+Tie notes of the same pitch bettween measures
+Tie notes of a diffrent pitch bettween measures
+Tie notes of the same pitch bettween measures
+What is the measure an eigth note with an augmentation dot?
+3 half notes
+3 eigth notes
+1 half note
+3 sixteenth notes
+3 sixteenth notes
