@@ -1,22 +1,22 @@
-What are the lines 5 lines drawn horizontally called?
+What are the 5 lines that musical notes are placed onto called?
 Clefs
 Bars
 Trombones
 Staff
 Staff
-What is the Treble Clef also called?
+What is another name for the Treble Clef?
 Note 
 The G Clef
 The F Clef
 Ledger Lines
 The G Clef
-What is the Bass Clef also called?
-Chourd
+What is another name for the Bass Clef?
+Chord
 The F Clef
 The G Clef
-Rhyme
+Rhythm
 The G Clef
-What is a use of a ledger line?
+What is the purpose of a ledger line?
 Extends staff when there is no more room
 Makes notes a higher priority to hit
 The line that is attached to a note
@@ -28,9 +28,9 @@ Above
 Below
 Neither
 Both
-What is a Grand Staff?
+What is the Grand Staff?
 Only for experts
-Shows the relationship bettween the Bass and Treble
-A staff used for pianos
-Swag
-Shows the relationship bettween the Bass and Treble
+A staff which shows the relationship between the Treble and Bass clefs
+A really big stick
+Something the wizards use
+A staff which shows the relationship between the Treble and Bass clefs

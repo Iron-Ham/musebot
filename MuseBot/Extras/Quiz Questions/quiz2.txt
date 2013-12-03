@@ -1,24 +1,24 @@
-What is a note duration?
+What is note duration?
 The amount of time a chord is not being played
-A chourd
+A chord
 A vocal element
 The length of time a note is played
 The length of time a note is played
-What is the count of the whole note? (in relation to the 16th note)
+In 4/4 time, how many beats is a whole note played for?
 Depends on the tempo
 4
 6
 16
-16
-What are the 5 main notes called?
+4
+From longest to shortest, what are the common note lengths?
 Whole, Half, Quarter, Eighth, Sixteenth
 Whole, Half, Nickel, Eighth, Sixteenth
 Complete, Half, Quarter, Eighth, Sixteenth
 Whole, Half, Quarter, Tenth, Sixteenth
 Whole, Half, Quarter, Eighth, Sixteenth
-What types of notes are seldom used?
-Notes with dots
-Notes with more than 2 flags
-Notes without a flag
-All notes are used equally
-Notes with more than 2 flags
+How many flags do eighth notes have?
+1
+2
+3
+4
+1

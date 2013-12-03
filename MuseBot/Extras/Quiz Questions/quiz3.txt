@@ -6,17 +6,17 @@ Quarter Notes
 A vertical black bar
 What do time signatures do?
 Define the amount and type of note each measure contains
-Keep the tempo consistant
+Keep the tempo consistent
 Raise the volume of the music
-Signal a que to the player
+Cue the player
 Define the amount and type of note each measure contains
 How can time signatures affect music?
 Does not affect music
 Makes music easier to read
-Speeding up or slowing down tempo
+Time signatures control the speed at which music is played
 Raising the volume of the music
-Speeding up or slowing down tempo
-What does 6/2 time contain?
+Time signatures control the speed at which music is played
+How is 6/2 time defined?
 2 sixth notes
 4 half notes
 3 half notes

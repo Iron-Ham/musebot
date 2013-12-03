@@ -20,5 +20,5 @@ Define an accidental.
 Lowers the pitch of a note
 Raises the pitch of a note
 Can either raise or lower the pitch of a note
-Both raises and lowers the pitch of a note similtaniously
+Both raises and lowers the pitch of a note simultaneously
 Can either raise or lower the pitch of a note

@@ -7,12 +7,12 @@ Increase the note by one-half of its value
 What is the purpose of tenuto ties?
 Decrease the note by one half note
 Increase the note by one-half of its value
-Tie notes of the same pitch bettween measures
-Tie notes of a diffrent pitch bettween measures
-Tie notes of the same pitch bettween measures
-What is the measure an eigth note with an augmentation dot?
+Tie notes of the same pitch between measures
+Tie notes of a different pitch between measures
+Tie notes of the same pitch between measures
+What is the measure an eigtht note with an augmentation dot?
 3 half notes
-3 eigth notes
+3 eigtht notes
 1 half note
 3 sixteenth notes
 3 sixteenth notes
