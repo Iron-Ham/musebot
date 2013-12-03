@@ -1,8 +1,10 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.IOException;
 
 import javax.swing.JButton;
+
+import Practice.Practice;
+import Practice.PracticeListener;
 
 
 public class mainFrameListener implements ActionListener {
@@ -48,6 +50,11 @@ public class mainFrameListener implements ActionListener {
 				if(currentPane != 3) {
 					if(currentPane != 0)
 						frame.getPrimaryPane().remove(4);
+					Practice p = new Practice();
+					PracticeListener pl = new PracticeListener(p);
+					p.registerListeners(pl);
+					p.setBounds(100, 0, 1180, 720);
+					frame.getPrimaryPane().add(p, new Integer(1));
 				}
 				currentPane = 3;
 			}

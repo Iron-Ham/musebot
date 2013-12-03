@@ -29,7 +29,7 @@ public class Measure {
 		while (m.beatsToTimeSignatureRatio(timeSignature) != 1) {
 			Note n 	= new Note();
 			n 		= n.randomNote();
-			if(useDot == false && n.dotted())	{}
+			if((useDot == false && n.dotted()))	{}
 			else
 				m.addNote(n);
 			//If there are too many beats in the measure then remove a note

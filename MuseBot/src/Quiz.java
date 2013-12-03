@@ -31,8 +31,9 @@ public class Quiz extends JLayeredPane {
 		
 		quizButton = new JButton[6];
 		for(int i = 0; i < 6; i++) {
+			int x = (120 * i);
 			quizButton[i] = new JButton("Quiz " + (i+1));
-			quizButton[i].setBounds(920, 75*(i+1), 100, 50);
+			quizButton[i].setBounds(920, x, 260, 120);
 			layeredPane.add(quizButton[i], new Integer(2));
 		}
 		layeredPane.setBounds(0, 0, 1180, 720);

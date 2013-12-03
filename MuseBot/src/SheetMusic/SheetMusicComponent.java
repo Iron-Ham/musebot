@@ -57,7 +57,7 @@ public class SheetMusicComponent extends Canvas {
 		String[] 	ts 			= smts.split("/");
 		int 		numerator 	= getBravuraIntForInt(Integer.valueOf(ts[0]));
 		int 		denominator = getBravuraIntForInt(Integer.valueOf(ts[1]));
-		File f = new File("Bravura.otf");
+		File f = new File("src/SheetMusic/Bravura.otf");
 		Font font;
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, f);

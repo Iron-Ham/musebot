@@ -6,7 +6,7 @@ import javax.swing.*;
 
 
 public class mainFrame extends JFrame {
-
+	private static final long serialVersionUID = 1L;
 	private JLayeredPane primaryPane;
 	private JLabel navBar;
 	private JButton[] navButtons;
