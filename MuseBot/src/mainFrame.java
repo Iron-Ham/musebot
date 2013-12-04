@@ -10,7 +10,7 @@ public class mainFrame extends JFrame {
 	private JLayeredPane primaryPane;
 	private JLabel navBar;
 	private JButton[] navButtons;
-
+	private JLabel bg;
 	public mainFrame() throws IOException { 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		setSize(1280, 720);
@@ -20,6 +20,11 @@ public class mainFrame extends JFrame {
 		//Initialization
 		navButtons = new JButton[4];
 		primaryPane = new JLayeredPane();
+		
+		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract.png").toString()));
+		bg.setSize(1180, 720);
+		bg.setLocation(100,0);
+		
 		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/navBar_home.png").toString()));
 		navBar.setSize(100,720);
 		navBar.setLocation(0,0);
@@ -28,6 +33,7 @@ public class mainFrame extends JFrame {
 		for (int i = 0; i < navButtons.length; i++) { 
 			primaryPane.add(navButtons[i], new Integer(1));
 		}
+		primaryPane.add(bg, new Integer(2));
 		add(primaryPane);
 
 	}

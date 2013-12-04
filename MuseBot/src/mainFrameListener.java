@@ -12,14 +12,15 @@ import Practice.PracticeListener;
 public class mainFrameListener implements ActionListener {
 	
 	mainFrame frame;
-	JLabel bg; 
 	int currentPane;
+	LessonPanel somePanel;
+	LessonListener lessonListener;
 	
-	public mainFrameListener(mainFrame f) {
+	public mainFrameListener(mainFrame f) throws IOException {
 		frame = f;
-		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract.png").toString()));
 		currentPane = 0;
-		frame.getPrimaryPane().add(bg, new Integer(4));
+		somePanel = new LessonPanel();
+		lessonListener = new LessonListener(somePanel);
 	}
 
 	@Override
@@ -28,49 +29,41 @@ public class mainFrameListener implements ActionListener {
 		if(source instanceof JButton) {
 			JButton b = (JButton)source;
 			if(b.getActionCommand().equals("home")) {
-				if(currentPane != 1) {
-					if(currentPane != 0)
-						frame.getPrimaryPane().remove(4);
+				if(currentPane != 0) {
+					frame.getPrimaryPane().remove(0);
 				}
-				currentPane = 1;
+				currentPane = 0;
 			}
 			else if(b.getActionCommand().equals("lesson")) {
 				if(currentPane != 2) {
-					try {
-						if(currentPane != 0)
-							frame.getPrimaryPane().remove(4);
-							LessonPanel somePanel;
-							somePanel = new LessonPanel();
-							somePanel.setBounds(100, 0, 1180, 720);
-							LessonListener listen = new LessonListener(somePanel);
-							frame.getPrimaryPane().add(somePanel, new Integer(1));
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
+					if(currentPane != 0)
+						frame.getPrimaryPane().remove(0);
+						somePanel.setBounds(100, 0, 1180, 720);
+						frame.getPrimaryPane().add(somePanel, new Integer(3));
 					}
 				currentPane = 2;
 			}
 			else if(b.getActionCommand().equals("practice")) {
 				if(currentPane != 3) {
 					if(currentPane != 0)
-						frame.getPrimaryPane().remove(4);
+						frame.getPrimaryPane().remove(0);
 					Practice p = new Practice();
 					PracticeListener pl = new PracticeListener(p);
 					p.registerListeners(pl);
 					p.setBounds(100, 0, 1180, 720);
-					frame.getPrimaryPane().add(p, new Integer(1));
+					frame.getPrimaryPane().add(p, new Integer(3));
 				}
 				currentPane = 3;
 			}
 			else if(b.getActionCommand().equals("quiz")) {
 				if(currentPane != 4) {
 					if(currentPane != 0)
-						frame.getPrimaryPane().remove(4);
+						frame.getPrimaryPane().remove(0);
 					Quiz q = new Quiz();
 					q.setBounds(100, 0, 1180, 720);
 					QuizListener l = new QuizListener(q);
 					q.registerListeners(l);
-					frame.getPrimaryPane().add(q, new Integer(1));
+					frame.getPrimaryPane().add(q, new Integer(3));
 				}
 				currentPane = 4;
 			}
