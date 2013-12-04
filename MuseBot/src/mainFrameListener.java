@@ -9,6 +9,12 @@ import Practice.Practice;
 import Practice.PracticeListener;
 
 
+/**
+ * 
+ * @author Michael Wayman
+ * Modified by Hesham Salman
+ *
+ */
 public class mainFrameListener implements ActionListener {
 	
 	mainFrame frame;

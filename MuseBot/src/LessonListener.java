@@ -1,8 +1,12 @@
 import java.awt.event.*;
 import java.io.*;
-
 import javax.swing.*;
 
+
+/*
+ * This class is the listener class for the LessonPanel
+ * @author: Hesham Salman
+ */
 public class LessonListener implements ActionListener {
 	LessonPanel panel;
 	
@@ -15,9 +19,9 @@ public class LessonListener implements ActionListener {
 		Object source = e.getSource();
 		if (source instanceof JButton) { 
 			JButton button = (JButton) source;
-			try { 
+			try { //Changes lessons
 				if (button == panel.lessonBtns[0]) { 
-					panel.changeImg(0);
+					panel.changeImg(0);	
 				}
 				else if (button == panel.lessonBtns[1]) { 
 					panel.changeImg(1);

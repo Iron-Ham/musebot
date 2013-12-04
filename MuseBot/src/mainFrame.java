@@ -6,6 +6,11 @@ import javax.swing.*;
 
 
 public class mainFrame extends JFrame {
+	/**
+	 * The purpose of this class is to hold the navigation bar and other panels
+	 * @author: Hesham Salman
+	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JLayeredPane primaryPane;
 	private JLabel navBar;
