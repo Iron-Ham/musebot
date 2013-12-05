@@ -26,7 +26,7 @@ public class mainFrame extends JFrame {
 		navButtons = new JButton[4];
 		primaryPane = new JLayeredPane();
 		
-		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract.png").toString()));
+		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract_Home.png").toString()));
 		bg.setSize(1180, 720);
 		bg.setLocation(100,0);
 		
