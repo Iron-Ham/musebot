@@ -11,14 +11,14 @@ A black key to a black key
 A white key to a black key
 The distance from a key to another key
 A whole step is:
-Half the length as a double step
+Equal to two half steps
 Always black to black
 Always back-to back
-Double the length of a half-step
-Half the length as a double step
+Two footsteps
+Equal to two half steps
 Define an accidental.
-Lowers the pitch of a note
-Raises the pitch of a note
-Can either raise or lower the pitch of a note
-Both raises and lowers the pitch of a note simultaneously
-Can either raise or lower the pitch of a note
+A mistake
+Changes the pitch of a note
+A note that shouldn’t be played
+Slows down a note
+Changes the pitch of a note
