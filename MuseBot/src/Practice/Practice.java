@@ -31,11 +31,11 @@ public class Practice extends JLayeredPane {
 		next.setBounds(500, 650, 120, 30);
 		
 		pane.setBounds(0, 0, 1180, 720);
-		pane.add(check, new Integer(0));
-		pane.add(next, new Integer(0));
+		pane.add(check, new Integer(2));
+		pane.add(next, new Integer(2));
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
-		dq.setBounds(0, 0, 1180, 650);
+		dq.setBounds(0, 0, 1180, 720);
 		pane.add(dq, new Integer(1));
 		pane.add(bg, new Integer(0));
 		add(pane, new Integer(0));
