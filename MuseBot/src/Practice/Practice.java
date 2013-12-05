@@ -20,6 +20,8 @@ public class Practice extends JLayeredPane {
 	JButton check;
 	JButton next;
 	JLabel bg;
+	JLabel sideGradient;
+	JLabel divider;
 	JLayeredPane pane;
 	QuizzesListener ql;
 	
@@ -40,12 +42,20 @@ public class Practice extends JLayeredPane {
 		pane.setBounds(0, 0, 1180, 720);
 		pane.add(check, new Integer(2));
 		pane.add(next, new Integer(2));
+		sideGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/practicePanel.png").toString()));
+		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
+		divider.setLocation(900, 0);
+		divider.setSize(20, 720);
+		sideGradient.setLocation(920, 0);
+		sideGradient.setSize(260, 720);
 		dq.setBounds(0, 0, 900, 720);
 		dq.setBackground(Color.WHITE);
 		pane.add(dq, new Integer(1));
 		pane.add(bg, new Integer(0));
+		pane.add(divider, new Integer(0));
+		pane.add(sideGradient, new Integer(0));
 		add(pane, new Integer(0));
 	}
 	
