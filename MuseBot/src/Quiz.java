@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
 
@@ -29,6 +30,7 @@ public class Quiz extends JLayeredPane {
 		
 		layeredPane.add(navBar, new Integer(0));
 		layeredPane.add(divBar, new Integer(1));
+		setBackground(Color.WHITE);
 		
 		quizButton = new JButton[6];
 		for(int i = 0; i < 6; i++) {

@@ -1,11 +1,14 @@
 package Quizzes;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -150,8 +153,13 @@ public class QuizzesListener implements ActionListener {
 					else
 						total += 4;
 				}
-				System.out.println(right);
-				System.out.println(total);
+				int sc = (int)((float)right/total*100);
+				JFrame jf = new JFrame();
+				jf.setSize(100, 100);
+				JLabel score = new JLabel("" + sc + "%");
+				jf.setLayout(new FlowLayout());
+				jf.add(score);
+				jf.setVisible(true);
 			}
 			
 		}

@@ -1,7 +1,9 @@
 package Quizzes;
 
+import java.awt.Color;
 import java.io.*;
 import java.util.*;
+
 import SheetMusic.*;
 
 import javax.swing.JLayeredPane;
@@ -27,7 +29,8 @@ public class Quiz1 extends JLayeredPane {
 		
 		//create the navigation buttons
 		Nav_Panel nav = new Nav_Panel();
-		nav.setBounds(200, 650, 500, 70);
+		nav.setBounds(0, 650, 900, 70);
+		nav.setBackground(Color.WHITE);
 		
 		//add the navigation buttons to the quiz
 		add(nav, new Integer(0));
@@ -68,6 +71,7 @@ public class Quiz1 extends JLayeredPane {
 		displayArea.setBounds(0, 0, 900, 650);
 		if(getComponentCount() == 2)
 			remove(0);
+		displayArea.setBackground(Color.WHITE);
 		add(displayArea, new Integer(1));
 	}
 	public void initMultipleChoiceQuestions(String file) {

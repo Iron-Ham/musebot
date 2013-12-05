@@ -34,14 +34,14 @@ public class mainFrameListener implements ActionListener {
 		Object source = e.getSource();
 		if(source instanceof JButton) {
 			JButton b = (JButton)source;
-			if(b.getActionCommand().equals("home")) {
+			/*if(b.getActionCommand().equals("home")) {
 				if(currentPane != 0) {
-					frame.getPrimaryPane().remove(0);
+					//frame.getPrimaryPane().remove(0);
 					//Makes no changes until the HomePane is added
 				}
 				currentPane = 0;
-			}
-			else if(b.getActionCommand().equals("lesson")) {
+			}*/
+			if(b.getActionCommand().equals("lesson")) {
 				if(currentPane != 2) {
 					if(currentPane != 0)
 						frame.getPrimaryPane().remove(0);

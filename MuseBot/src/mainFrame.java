@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class mainFrame extends JFrame {
 		navBar.setSize(100,720);
 		navBar.setLocation(0,0);
 		primaryPane.add(navBar, new Integer(0));
+
 		buttonInitialization();
 		for (int i = 0; i < navButtons.length; i++) { 
 			primaryPane.add(navButtons[i], new Integer(1));

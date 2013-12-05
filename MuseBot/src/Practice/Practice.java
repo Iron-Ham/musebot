@@ -1,5 +1,7 @@
 package Practice;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Random;
@@ -27,6 +29,7 @@ public class Practice extends JLayeredPane {
 		check = new JButton("Check Answers");
 		next = new JButton("Next Question");
 		
+		
 		check.setBounds(380, 650, 120, 30);
 		next.setBounds(500, 650, 120, 30);
 		
@@ -35,7 +38,8 @@ public class Practice extends JLayeredPane {
 		pane.add(next, new Integer(2));
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
-		dq.setBounds(0, 0, 1180, 720);
+		dq.setBounds(0, 0, 900, 720);
+		dq.setBackground(Color.WHITE);
 		pane.add(dq, new Integer(1));
 		pane.add(bg, new Integer(0));
 		add(pane, new Integer(0));
@@ -43,6 +47,11 @@ public class Practice extends JLayeredPane {
 	
 	public Question getCurrentQuestion() {
 		return currentQuestion;
+	}
+	public void paintComponent(Graphics g){
+	    super.paintComponent(g);
+
+	    g.setColor(Color.WHITE);
 	}
 	
 	public void showNewQuestion() {
