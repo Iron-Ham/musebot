@@ -110,7 +110,7 @@ public class DisplayQuestion extends JPanel {
 		for(int i = 0; i < 4; i++) {
 			rb[i] = new JRadioButton(q.getOption(i));
 			bg.add(rb[i]);
-			rb[i].setBounds(150, 200 + 50*(i), 400, 25);
+			rb[i].setBounds(150, 200 + 50*(i), 500, 25);
 			add(rb[i]);
 		}
 	}
