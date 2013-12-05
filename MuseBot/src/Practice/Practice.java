@@ -39,23 +39,27 @@ public class Practice extends JLayeredPane {
 		
 		//create an initial question and display it
 		//add everything to our pane
-		pane.setBounds(0, 0, 1180, 720);
-		pane.add(check, new Integer(2));
-		pane.add(next, new Integer(2));
 		sideGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/practicePanel.png").toString()));
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
-		currentQuestion = newQuestion();
-		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
 		divider.setLocation(900, 0);
 		divider.setSize(20, 720);
 		sideGradient.setLocation(920, 0);
 		sideGradient.setSize(260, 720);
+		pane.setBounds(0, 0, 1180, 720);
+		pane.add(bg, new Integer(4));
+		pane.add(divider, new Integer(5));
+		pane.add(sideGradient, new Integer(6));
+		pane.add(check, new Integer(2));
+		pane.add(next, new Integer(2));
+
+		currentQuestion = newQuestion();
+		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
+
 		dq.setBounds(0, 0, 900, 720);
 		dq.setBackground(Color.WHITE);
+
 		pane.add(dq, new Integer(1));
-		pane.add(bg, new Integer(0));
-		pane.add(divider, new Integer(0));
-		pane.add(sideGradient, new Integer(0));
+
 		add(pane, new Integer(0));
 	}
 	
@@ -70,7 +74,6 @@ public class Practice extends JLayeredPane {
 	//show a new question
 	public void showNewQuestion() {
 		//remove the old question
-		pane.remove(0);
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
 		dq.setBounds(0, 0, 1180, 650);
