@@ -15,15 +15,14 @@ public class Quiz extends JLayeredPane {
 	JPanel quiz;
 	
 	public Quiz() {
-		
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setSize(1180, 720);
 		layeredPane = new JLayeredPane();
 		
+		//create the division bar
 		ImageIcon divii = new ImageIcon("Extras/Resources/Frame/divBar.png");
 		JLabel divBar = new JLabel(divii);
 		divBar.setBounds(900, 0, 20, 720);
 		
+		//create the panel
 		ImageIcon navii = new ImageIcon("Extras/Resources/Frame/Panel_bg.png");
 		JLabel navBar = new JLabel(navii);
 		navBar.setBounds(920, 0, 260, 720);
@@ -32,6 +31,7 @@ public class Quiz extends JLayeredPane {
 		layeredPane.add(divBar, new Integer(1));
 		setBackground(Color.WHITE);
 		
+		//create the different quiz buttons
 		quizButton = new JButton[6];
 		for(int i = 0; i < 6; i++) {
 			int x = (120 * i);
@@ -40,6 +40,7 @@ public class Quiz extends JLayeredPane {
 			quizButton[i].setLocation(920, x);
 			quizButton[i].setSize(260,120);
 		}
+		//set the icon of the different quiz buttons
 		quizButton[0].setIcon(new ImageIcon(new File("Extras/Resources/Quiz/Quiz1.png").toString()));
 		quizButton[1].setIcon(new ImageIcon(new File("Extras/Resources/Quiz/Quiz2.png").toString()));
 		quizButton[2].setIcon(new ImageIcon(new File("Extras/Resources/Quiz/Quiz3.png").toString()));
@@ -60,7 +61,7 @@ public class Quiz extends JLayeredPane {
 	public JLayeredPane getLayeredPane() {
 		return layeredPane;
 	}
-	
+	//register the action listener for the different quizzes
 	public void registerListeners(ActionListener l) {
 		for(int i = 0; i < 6; i++)
 			quizButton[i].addActionListener(l);

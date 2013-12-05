@@ -11,6 +11,7 @@ public class QuizListener implements ActionListener {
 	Quiz frame;
 	int currentQuiz;
 	
+	//initialize our action listener
 	public QuizListener(Quiz frame) {
 		this.frame = frame;
 		currentQuiz = 0;
