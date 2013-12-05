@@ -12,7 +12,7 @@ import Practice.PracticeListener;
 /**
  * 
  * @author Michael Wayman
- * Modified by Hesham Salman
+ * Modified and Refactored by Hesham Salman
  *
  */
 public class mainFrameListener implements ActionListener {
@@ -37,6 +37,7 @@ public class mainFrameListener implements ActionListener {
 			if(b.getActionCommand().equals("home")) {
 				if(currentPane != 0) {
 					frame.getPrimaryPane().remove(0);
+					//Makes no changes until the HomePane is added
 				}
 				currentPane = 0;
 			}
