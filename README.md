@@ -1,4 +1,4 @@
 musebot
 =======
 
-A team project (insert Project Rap Here)
+A music education app.
