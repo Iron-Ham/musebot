@@ -74,7 +74,6 @@ public class Practice extends JLayeredPane {
 	//show a new question
 	public void showNewQuestion() {
 		//remove the old question
-		pane.remove(1);
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
 		dq.setBounds(0, 0, 900, 650);

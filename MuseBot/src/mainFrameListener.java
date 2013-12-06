@@ -1,10 +1,15 @@
 import java.awt.event.*;
 import java.io.IOException;
+
 import javax.swing.*;
+
 import java.io.*;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import Lesson.LessonListener;
+import Lesson.LessonPanel;
 import Practice.Practice;
 import Practice.PracticeListener;
 

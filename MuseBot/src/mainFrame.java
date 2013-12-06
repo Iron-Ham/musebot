@@ -30,12 +30,12 @@ public class mainFrame extends JFrame {
 		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract_Home.png").toString()));
 		bg.setSize(1180, 720);
 		bg.setLocation(100,0);
-		
+		//Set navbar
 		navBar = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/navBar_home.png").toString()));
 		navBar.setSize(100,720);
 		navBar.setLocation(0,0);
 		primaryPane.add(navBar, new Integer(0));
-
+		//Set buttons
 		buttonInitialization();
 		for (int i = 0; i < navButtons.length; i++) { 
 			primaryPane.add(navButtons[i], new Integer(1));

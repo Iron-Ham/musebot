@@ -1,3 +1,4 @@
+package Lesson;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
