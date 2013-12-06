@@ -8,7 +8,8 @@ import SheetMusic.*;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
+//THIS CLASS GENERATES THE QUESTIONS FOR THE QUIZ THE USER PLANS TO TAKE
+//@author MICHAEL WAYMAN
 public class Quiz1 extends JLayeredPane {
 	private static final long serialVersionUID = 1L;
 	
@@ -35,7 +36,7 @@ public class Quiz1 extends JLayeredPane {
 		//add the navigation buttons to the quiz
 		add(nav, new Integer(0));
 		
-		
+		//initialize the questions based on which quiz the user wants to take
 		if(quizNumber == 1) {
 			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz1.txt");
 			initQuiz1Questions();
@@ -59,21 +60,24 @@ public class Quiz1 extends JLayeredPane {
 		else if(quizNumber == 6) {
 			initMultipleChoiceQuestions("Extras/Quiz Questions/quiz6.txt");
 		}
-		
+		//shuffle the question list
 		Collections.shuffle(qlist);
 		//create and add the action listeners
 		QuizzesListener l = new QuizzesListener(qlist, this, nav);
 		nav.registerListener(l);
 	}
+	//method to display a quiz
 	public void setDisplay(JPanel p) {
 		displayArea = new JPanel();
 		displayArea = p;
 		displayArea.setBounds(0, 0, 900, 650);
+		//if there already is a quiz showing then remove it
 		if(getComponentCount() == 2)
 			remove(0);
 		displayArea.setBackground(Color.WHITE);
 		add(displayArea, new Integer(1));
 	}
+	//read in and initialize the multiple choice questions
 	public void initMultipleChoiceQuestions(String file) {
 		File f = new File(file);
 		try {
@@ -95,16 +99,19 @@ public class Quiz1 extends JLayeredPane {
 		}
 		
 	}
+	//create random questions for quiz 1
 	public void initQuiz1Questions() {
 		int s = qlist.size();
 		for(int i = 0; i < s; i ++) {
 			Question q = new Question();
 			SheetMusic sm = new SheetMusic("4/4");
+			//don't use notes that have dots
 			sm.useDots(false);
 			sm = sm.generateRandomSheetMusic(4);
 			q.setSheetMusic(sm);
 			q.setQuestion("What are the 1st, 2nd, 3rd, and 4th notes on the sheet music without accents(if applicable)?");
 			int w = 0;
+			//go through the generated sheet music and set the answers to the question
 			for(int j = 0; j < 4; j++) {
 				for(int k = 0; k < sm.getMeasure(j).numberOfNotes(); k++) {
 					if(w >= 4)
@@ -120,16 +127,19 @@ public class Quiz1 extends JLayeredPane {
 			qlist.remove(0);
 		}
 	}
+	//create random questions for quiz 2
 	public void initQuiz2Questions() {
 		int s = qlist.size();
 		for(int i = 0; i < s; i ++) {
 			Question q = new Question();
 			SheetMusic sm = new SheetMusic("4/4");
+			//don't use notes that have dots
 			sm.useDots(false);
 			sm = sm.generateRandomSheetMusic(4);
 			q.setSheetMusic(sm);
 			q.setQuestion("What are the 1st, 2nd, 3rd, and 4th note durations on the sheet music?");
 			int w = 0;
+			//go through the generated sheet music and set the answers to the question
 			for(int j = 0; j < 4; j++) {
 				for(int k = 0; k < sm.getMeasure(j).numberOfNotes(); k++) {
 					if(w >= 4)
@@ -145,10 +155,12 @@ public class Quiz1 extends JLayeredPane {
 			qlist.remove(0);
 		}
 	}
+	//create random questions for quiz 3
 	public void initQuiz3Questions() {
 		int s = qlist.size();
 		for(int i = 0; i < s; i ++) {
 			Question q = new Question();
+			//use a random time signature
 			String[] foo = {"4/4", "3/4", "6/8", "3/2"};
 			int bar = new Random().nextInt(4);
 			SheetMusic sm = new SheetMusic(foo[bar]);
@@ -157,6 +169,7 @@ public class Quiz1 extends JLayeredPane {
 			q.setSheetMusic(sm);
 			q.setQuestion("How many beats are the 1st, 2nd, 3rd, and 4th notes on the sheet music?");
 			int w = 0;
+			//go through the generated sheet music and set the answers to the question
 			for(int j = 0; j < 4; j++) {
 				for(int k = 0; k < sm.getMeasure(j).numberOfNotes(); k++) {
 					if(w >= 4)
@@ -172,15 +185,18 @@ public class Quiz1 extends JLayeredPane {
 			qlist.remove(0);
 		}
 	}
+	//create random questions for quiz 4
 	public void initQuiz4Questions() {
 		int s = qlist.size();
 		for(int i = 0; i < s; i ++) {
 			Question q = new Question();
 			SheetMusic sm = new SheetMusic("4/4");
+			//generate random sheet music that only has rests
 			sm = sm.generateRandomRestSheetMusic(4);
 			q.setSheetMusic(sm);
 			q.setQuestion("What are the 1st, 2nd, 3rd, and 4th rest durations on the sheet music?");
 			int w = 0;
+			//go through the generated sheet music and set the answers to the question
 			for(int j = 0; j < 4; j++) {
 				for(int k = 0; k < sm.getMeasure(j).numberOfNotes(); k++) {
 					if(w >= 4)
@@ -196,6 +212,7 @@ public class Quiz1 extends JLayeredPane {
 			qlist.remove(0);
 		}
 	}
+	//create random questions for quiz 5
 	public void initQuiz5Questions() {
 		int s = qlist.size();
 		for(int i = 0; i < s; i ++) {
@@ -203,10 +220,12 @@ public class Quiz1 extends JLayeredPane {
 			String[] foo = {"4/4", "3/4", "6/8", "3/2"};
 			int bar = new Random().nextInt(4);
 			SheetMusic sm = new SheetMusic(foo[bar]);
+			//generate random sheet music with notes that only have dots
 			sm = sm.generateRandomSheetMusicDotsOnly(4);
 			q.setSheetMusic(sm);
 			q.setQuestion("How many beats are the 1st, 2nd, 3rd, and 4th notes on the sheet music?");
 			int w = 0;
+			//go through the generated sheet music and set the answers to the question
 			for(int j = 0; j < 4; j++) {
 				for(int k = 0; k < sm.getMeasure(j).numberOfNotes(); k++) {
 					if(w >= 4)

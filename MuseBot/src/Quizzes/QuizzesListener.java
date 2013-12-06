@@ -12,15 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+//THIS CLASS IS THE ACTION LISTENER FOR THE DIFFERENT QUIZZES
 public class QuizzesListener implements ActionListener {
 	
 	Quiz1 q1;
 	List<Question> qlist;
+	//counter is used to keep track of where the user is at in the program
 	int counter;
 	Nav_Panel nav;
 	String[] answers;
 	DisplayQuestion dis;
 	
+	//constructor and initialize everything
 	public QuizzesListener(List<Question> qlist, Quiz1 q1, Nav_Panel nav) {
 		this.q1 = q1;
 		this.qlist = qlist;
@@ -31,10 +34,7 @@ public class QuizzesListener implements ActionListener {
 				answers[i] = "";
 	}
 	
-
-	public void handleAnswers() {
-		
-	}
+	//enable or disable next, previous, and start buttons based on where the user is at in the quiz
 	public void handleButtons() {
 		if(counter == 0) {
 			nav.getStart().setEnabled(false);
@@ -51,9 +51,12 @@ public class QuizzesListener implements ActionListener {
 			nav.getNext().setEnabled(false);
 		
 	}
+	//display a new question in the quiz
 	public void displayNewQuestion() {
 		dis = new DisplayQuestion(qlist.get(counter));
 		q1.setDisplay(dis);
+		
+		//IF THE USER HAS ALREADY ENTERED ANSWERS FOR THIS QUESTION THEN SET THE FIELDS TO THEIR ANSWER
 		if(qlist.get(counter).getType().equals("multiple choice")) {
 			for(int i = 0; i < 4; i++)
 				dis.getRadioButton()[i].addActionListener(this);
@@ -64,13 +67,14 @@ public class QuizzesListener implements ActionListener {
 				}
 			}
 		}
+		//IF THE USER HAS ALREADY ENTERED ANSWERS FOR THIS QUESTION THEN SET THE FIELDS TO THEIR ANSWER
 		else if(qlist.get(counter).getType().equals("identify 4 notes")) {
 			String[] s = answers[counter].split(",");
-			//System.out.println(answers[counter]);
 			for(int i = 0; i < s.length; i++) {
 				dis.getFields()[i].setText(s[i]);
 			}
 		}
+		//IF THE USER HAS ALREADY ENTERED ANSWERS FOR THIS QUESTION THEN SET THE FIELDS TO THEIR ANSWER
 		else if(qlist.get(counter).getType().equals("identify 4 durations") || qlist.get(counter).getType().equals("identify 4 beats") 
 				|| qlist.get(counter).getType().equals("identify 4 rests")) {
 			String[] s = answers[counter].split(",");
@@ -83,6 +87,7 @@ public class QuizzesListener implements ActionListener {
 		}
 			
 	}
+	//SAVE THE ANSWERS THE USER HAS PROVIDED
 	public void handleSheetAnswers() {
 		if(qlist.get(counter).getType().equals("identify 4 notes")) {
 			JTextField[] field = dis.getFields();
@@ -105,12 +110,14 @@ public class QuizzesListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		//WHEN THE USER PRESSES A BUTTON
 		if(source instanceof JButton) {
 			JButton src = (JButton) source;
 			if(src.getActionCommand().equals("Start")) {
 				displayNewQuestion();
 				handleButtons();
 			}
+			//display the previous question
 			else if(src.getActionCommand().equals("Previous")) {
 				if(!qlist.get(counter).getType().equals("multiple choice")) {
 					handleSheetAnswers();
@@ -119,6 +126,7 @@ public class QuizzesListener implements ActionListener {
 				handleButtons();
 				displayNewQuestion();
 			}
+			//display the next question
 			else if(src.getActionCommand().equals("Next")) {
 				if(!qlist.get(counter).getType().equals("multiple choice")) {
 					handleSheetAnswers();
@@ -127,12 +135,15 @@ public class QuizzesListener implements ActionListener {
 				handleButtons();
 				displayNewQuestion();
 			}
+			//tally up score and show the results
 			else if(src.getActionCommand().equals("Submit")) {
 				if(!qlist.get(counter).getType().equals("multiple choice")) {
 					handleSheetAnswers();
 				}
 				double right = 0;
 				double total = 0;
+				//go through the submitted answers and the actual answers
+				//if they get it right increment right
 				for(int i = 0; i < answers.length; i++) {
 					if(answers[i].contains(",")) {
 						String[] foo = answers[i].split(",");
@@ -153,6 +164,7 @@ public class QuizzesListener implements ActionListener {
 					else
 						total += 4;
 				}
+				//create a frame to display the results as a percentage
 				int sc = (int)((float)right/total*100);
 				JFrame jf = new JFrame();
 				jf.setSize(100, 100);
@@ -163,6 +175,7 @@ public class QuizzesListener implements ActionListener {
 			}
 			
 		}
+		//if they selected a radio button then save their answer
 		else if(source instanceof JRadioButton) {
 			JRadioButton rb = (JRadioButton)source;
 			answers[counter] = rb.getActionCommand();

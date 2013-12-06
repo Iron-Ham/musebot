@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+//THIS CLASS CREATES THE NAVIGATION PANEL FOR THE DIFFERENT QUIZZES
+//@author Michael Wayman
+
 public class Nav_Panel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	

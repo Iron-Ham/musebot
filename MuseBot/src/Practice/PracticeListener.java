@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+//THIS CLASS IS THE LISTENER FOR THE PRACTICE SECTION
+//@author MICHAEL WAYMAN
 public class PracticeListener implements ActionListener {
 
 	Practice p;
@@ -19,6 +21,8 @@ public class PracticeListener implements ActionListener {
 		Object source = e.getSource();
 		if(source instanceof JButton) {
 			JButton b = (JButton)source;
+			
+			//show the answers when the user clicks check answers by creating a new frame
 			if(b.getActionCommand().equals("Check Answers")) {
 				JFrame answers = new JFrame();
 				answers.setBounds(300, 300, 250, 100);
@@ -30,6 +34,8 @@ public class PracticeListener implements ActionListener {
 				}
 				answers.setVisible(true);
 			}
+			
+			//show a new question when they click next question
 			else if(b.getActionCommand().equals("Next Question")) {
 				p.showNewQuestion();
 			}

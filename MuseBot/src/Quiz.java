@@ -4,7 +4,8 @@ import java.io.File;
 
 import javax.swing.*;
 
-
+//THIS CREATES THE PANEL WHICH THE NAVIGATION FOR THE DIFFERENT QUIZZES IS PLACED IN AS WELL AS THE QUIZ ITSELF
+//@author MICHAEL WAYMAN
 public class Quiz extends JLayeredPane {
 
 	private static final long serialVersionUID = 1L;

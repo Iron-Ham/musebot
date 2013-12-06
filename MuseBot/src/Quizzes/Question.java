@@ -5,6 +5,8 @@ import java.util.List;
 
 import SheetMusic.SheetMusic;
 
+//THIS CLASS HOLDS THE INFORMATION ABOUT A QUESTION, THE SHEET MUSIC IT REQUIRES, THE QUESTION TYPE, AND THE ANSWERS
+//@author Michael Wayman
 public class Question {
 	String type;
 	SheetMusic sm;
@@ -18,6 +20,7 @@ public class Question {
 		answer 		= new ArrayList<String>();
 	}
 	
+	//GETTERS AND SETTERS
 	public void setSheetMusic(SheetMusic sm) {
 		this.sm = sm;
 	}

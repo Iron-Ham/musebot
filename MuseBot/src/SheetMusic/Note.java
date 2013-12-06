@@ -1,6 +1,9 @@
 package SheetMusic;
 import java.util.Random;
 
+//THIS CLASS DEFINES A NOTE AND HAS METHODS TO GENERATE RANDOM NOTES
+//@author MICHAEL WAYMAN
+
 public class Note {
 	
 	String duration;
@@ -55,6 +58,7 @@ public class Note {
 		return n;
 	}
 	
+	//GENERATE A REST NOTE
 	public Note randomRest() {
 		Random r = new Random();
 		Note n = new Note();

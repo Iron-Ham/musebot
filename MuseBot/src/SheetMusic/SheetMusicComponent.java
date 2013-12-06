@@ -3,7 +3,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-
+//THIS CLASS WILL DRAW THE SHEET MUSIC PROVIDED TO IT'S CONSTRUCTOR
+//@author Michael Wayman
 @SuppressWarnings("serial")
 public class SheetMusicComponent extends Canvas {
 
@@ -11,7 +12,7 @@ public class SheetMusicComponent extends Canvas {
 	Dimension origin;
 	Dimension size;
 	Container parent;
-	
+	//constructor
 	public SheetMusicComponent(SheetMusic sheetMusic, int x, int y, int width, int height, Container parent) {
 		this.sheetMusic		 = sheetMusic;
 		size				 = new Dimension(width, height);
@@ -38,6 +39,7 @@ public class SheetMusicComponent extends Canvas {
 		
 	}
 	
+	//RETURN THE INT VALUE TO GET THE BRAVURA FONT EQUIVILENT
 	public static int getBravuraIntForInt(int index) {
 		int[] map = new int[10];
 		map[0] = 59936;
@@ -52,6 +54,8 @@ public class SheetMusicComponent extends Canvas {
 		map[9] = 59952;
 		return map[index];
 	}
+	
+	//DRAW THE TIME SIGNATURE
 	public void drawTimeSignature(Graphics g) {
 		String smts = sheetMusic.getTimeSignature();
 		String[] 	ts 			= smts.split("/");
@@ -71,6 +75,7 @@ public class SheetMusicComponent extends Canvas {
 		}
 	}
 	
+	//DRAW THE BASS AND TREBLE CLEF
 	public void drawClefs(Graphics g) {
 		File f = new File("src/SheetMusic/Bravura.otf");
 		Font font;
@@ -103,14 +108,13 @@ public class SheetMusicComponent extends Canvas {
 				double intNoteVal	= Note.getIntValueForNote(note.getNote());
 				double y 			= size.height*.05 + (.075*(size.height)*intNoteVal/2);
 				
+				//DRAW THE LEDGER LINES IF THEY ARE NEEDED
 				if((intNoteVal >= 24 || intNoteVal <= 0 || intNoteVal == 12) && !note.getNote().equals("rest"))
 					g.drawLine((int)(x-.075/3*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height), 
 							(int)(x+.075*size.height), (int)(size.height-y-1+.075*size.height/4+origin.height));
 				
 				
-//57862
-				//System.out.println(note.getNote());
-				
+				//IF THE NOTE IS NOT A REST NOTE THEN DRAW IT BASED ON ITS DURATION
 				if(!note.getNote().equals("rest")) {
 					//draw the dot if applicable
 					if(note.dotted())
@@ -135,6 +139,7 @@ public class SheetMusicComponent extends Canvas {
 					else if(note.getAccent() == "flat")
 						g.drawChars(Character.toChars(9837), 0, 1, (int) (x - .05*size.height), (int)(size.height - y - 1 + .075*size.height/8 + origin.height));
 				}
+				//IF THE NOTE IS A REST THEN DRAW THE REST
 				else if(note.getNote().equals("rest")) {
 					//draw the duration
 					double yPos = size.height*.05 + origin.height + size.height*.075*3 + size.height*.075/8;

@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import Quizzes.Quiz1;
 
 
+//THIS IS THE LISTENER TO NAVIGATE TO DIFFERENT QUIZZES
+//@author MICHAEL WAYMAN
 public class QuizListener implements ActionListener {
 	
 	Quiz frame;
@@ -24,6 +26,7 @@ public class QuizListener implements ActionListener {
 		
 		if(source instanceof JButton) {
 			JButton src = (JButton) source;
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			if(src.getActionCommand().equals("Quiz 1") && currentQuiz != 1) {
 				Quiz1 q1 = new Quiz1(1);
 				if(currentQuiz != 0)
@@ -31,6 +34,7 @@ public class QuizListener implements ActionListener {
 				currentQuiz = 1;
 				frame.getLayeredPane().add(q1, new Integer(4));
 			}
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			else if(src.getActionCommand().equals("Quiz 2") && currentQuiz != 2) {
 				Quiz1 q1 = new Quiz1(2);
 				if(currentQuiz != 0)
@@ -38,6 +42,7 @@ public class QuizListener implements ActionListener {
 				currentQuiz = 2;
 				frame.getLayeredPane().add(q1, new Integer(4));
 			}
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			else if(src.getActionCommand().equals("Quiz 3") && currentQuiz != 3) {
 				Quiz1 q1 = new Quiz1(3);
 				if(currentQuiz != 0)
@@ -45,6 +50,7 @@ public class QuizListener implements ActionListener {
 				currentQuiz = 3;
 				frame.getLayeredPane().add(q1, new Integer(4));
 			}
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			else if(src.getActionCommand().equals("Quiz 4") && currentQuiz != 4) {
 				Quiz1 q1 = new Quiz1(4);
 				if(currentQuiz != 0)
@@ -52,6 +58,7 @@ public class QuizListener implements ActionListener {
 				currentQuiz = 4;
 				frame.getLayeredPane().add(q1, new Integer(4));
 			}
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			else if(src.getActionCommand().equals("Quiz 5") && currentQuiz != 5) {
 				Quiz1 q1 = new Quiz1(5);
 				if(currentQuiz != 0)
@@ -59,6 +66,7 @@ public class QuizListener implements ActionListener {
 				currentQuiz = 5;
 				frame.getLayeredPane().add(q1, new Integer(4));
 			}
+			//if they pressed the quiz button then remove the old quiz if their was one and display the new quiz
 			else if(src.getActionCommand().equals("Quiz 6") && currentQuiz != 6) {
 				Quiz1 q1 = new Quiz1(6);
 				if(currentQuiz != 0)

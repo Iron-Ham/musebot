@@ -4,6 +4,8 @@ package SheetMusic;
 import java.util.ArrayList;
 import java.util.List;
 
+//THIS CLASS IS REPRESENTS SHEET MUSIC AND METHODS FOR GENERATING RANDOM SHEET MUSIC
+//@author Michael Wayman
 
 public class SheetMusic {
 	List<Measure> measures;
@@ -40,7 +42,7 @@ public class SheetMusic {
 		}
 		return sm;
 	}
-	
+	//GENERATE RANDOM SHEET MUSIC USING RESTS ONLY
 	public SheetMusic generateRandomRestSheetMusic(int numberOfMeasures) {
 		SheetMusic sm = new SheetMusic(timeSignature);
 		for(int i = 0; i < numberOfMeasures; i++) {
@@ -50,7 +52,7 @@ public class SheetMusic {
 		}
 		return sm;
 	}
-	
+	//GENERATE RANDOM SHEET MUSIC USING DOTS ONLY
 	public SheetMusic generateRandomSheetMusicDotsOnly(int numberOfMeasures) {
 		SheetMusic sm = new SheetMusic(timeSignature);
 		for(int i = 0; i < numberOfMeasures; i++) {

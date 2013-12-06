@@ -11,6 +11,9 @@ import javax.swing.*;
 import Quizzes.*;
 import SheetMusic.SheetMusic;
 
+//THIS IS THE CLASS FOR PRACTICE
+//@author MICHAEL WAYMAN
+
 public class Practice extends JLayeredPane {
 	private static final long serialVersionUID = 1L;
 	
@@ -23,12 +26,17 @@ public class Practice extends JLayeredPane {
 	JLabel sideGradient;
 	JLabel divider;
 	JLayeredPane pane;
+	JLayeredPane displayQ;
+	JPanel buttons;
 	QuizzesListener ql;
+
 	
 	public Practice() {
 		//initialize and set the sizes of our classes
 		setBounds(0, 0, 900, 720);
 		pane = new JLayeredPane();
+		displayQ = new JLayeredPane();
+		buttons = new JPanel();
 		bg = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/Blue_Abstract_Home.png").toString()));
 		check = new JButton("Check Answers");
 		next = new JButton("Next Question");
@@ -36,8 +44,10 @@ public class Practice extends JLayeredPane {
 		
 		check.setBounds(380, 650, 120, 30);
 		next.setBounds(500, 650, 120, 30);
-		
-		//create an initial question and display it
+		buttons.setBounds(0, 640, 900, 720);
+		buttons.add(check);
+		buttons.add(next);
+		buttons.setBackground(Color.white);
 		//add everything to our pane
 		sideGradient = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/practicePanel.png").toString()));
 		divider = new JLabel(new ImageIcon(new File("Extras/Resources/Frame/divBar.png").toString()));
@@ -49,16 +59,23 @@ public class Practice extends JLayeredPane {
 		pane.add(bg, new Integer(4));
 		pane.add(divider, new Integer(5));
 		pane.add(sideGradient, new Integer(6));
-		pane.add(check, new Integer(2));
-		pane.add(next, new Integer(2));
+		//pane.add(check, new Integer(2));
+		//pane.add(next, new Integer(2));
+		pane.add(buttons, new Integer(2));
 
+		//create an initial question and display it
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
-
 		dq.setBounds(0, 0, 900, 720);
 		dq.setBackground(Color.WHITE);
-
-		pane.add(dq, new Integer(1));
+		
+		displayQ.setBounds(0, 0, 900, 720);
+		displayQ.setBackground(Color.WHITE);
+		displayQ.add(dq, new Integer(0));
+		
+		pane.setBackground(Color.white);
+		
+		pane.add(displayQ, new Integer(1));
 
 		add(pane, new Integer(0));
 	}
@@ -66,20 +83,20 @@ public class Practice extends JLayeredPane {
 	public Question getCurrentQuestion() {
 		return currentQuestion;
 	}
-	public void paintComponent(Graphics g){
-	    super.paintComponent(g);
 
-	    g.setColor(Color.WHITE);
-	}
 	//show a new question
 	public void showNewQuestion() {
 		//remove the old question
+		displayQ.remove(0);
 		currentQuestion = newQuestion();
 		DisplayQuestion dq = new DisplayQuestion(currentQuestion);
 		dq.setBounds(0, 0, 900, 650);
 		dq.setBackground(Color.WHITE);
 		//add it to the question display
-		pane.add(dq, new Integer(1));
+		
+		displayQ.add(dq, new Integer(0));
+		pane.setBackground(Color.WHITE);
+
 	}
 	//register the action listener for action events
 	public void registerListeners(ActionListener l) {

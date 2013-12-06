@@ -3,6 +3,8 @@ package Quizzes;
 import javax.swing.*;
 
 import SheetMusic.SheetMusicComponent;
+//THIS CLASS WILL CREATE A JPANEL WHICH IS USED TO DISPLAY A QUESTION BASED ON QUESTION TYPE
+//@author Michael Wayman
 
 public class DisplayQuestion extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -22,8 +24,10 @@ public class DisplayQuestion extends JPanel {
 	//combobox components
 	JComboBox[] durationOptions;
 	
+	//constructor
 	public DisplayQuestion(Question q) {
 		this.q = q;
+		//display the question based on the question type
 		if(q.getType().equals("multiple choice"))
 			initMultipleChoice();
 		else if(q.getType().equals("identify 4 notes")) {
@@ -41,7 +45,9 @@ public class DisplayQuestion extends JPanel {
 		
 	}
 
+	//If the question uses combo boxes like for duration type
 	public void initSheetMusicDurationChoice() {
+		//initialize the components add add them to the DisplayQuestion pane
 		label = new JLabel[4];
 		question = new JTextArea();
 		question.setBounds(25, 230, 850, 45);
@@ -53,6 +59,7 @@ public class DisplayQuestion extends JPanel {
 		smc.setBounds(15,  25,  875, 250);
 		add(smc);
 		String[] options;
+		//set the combo box choices based on question type
 		if(q.getType().equals("identify 4 beats")) {
 			String[] tmp = {"1", "2", "3", "4", "5", "6", "7", "8", "half", "quarter", "eighth", "sixteenth", "three sixteenths", "three eighths", "three halves"};
 			options = tmp;
@@ -62,6 +69,7 @@ public class DisplayQuestion extends JPanel {
 			options = tmp;
 		}
 		durationOptions = new JComboBox[4];
+		//position and add the labels and combo boxes
 		for(int i = 0; i < 4; i++) {
 			durationOptions[i] = new JComboBox(options);
 			durationOptions[i].setSelectedIndex(0);
@@ -74,7 +82,10 @@ public class DisplayQuestion extends JPanel {
 			add(label[i]);
 		}
 	}
+	//if the question type requires the user enter information
+	//used for not recognition
 	public void initSheetMusicFieldChoice() {
+		//initialize and add the components
 		field = new JTextField[4];
 		label = new JLabel[4];
 		question = new JTextArea();
@@ -86,7 +97,7 @@ public class DisplayQuestion extends JPanel {
 		smc = new SheetMusicComponent(q.getSheetMusic(), 15, 25, 850, 150, this);
 		smc.setBounds(15,  25,  875, 250);
 		add(smc);
-		
+		//position and add the fields and labels
 		for(int i = 0; i < 4; i++) {
 			field[i] = new JTextField();
 			field[i].setBounds(300 + (i*60), 330, 50, 20);
@@ -98,6 +109,7 @@ public class DisplayQuestion extends JPanel {
 		}
 	}
 	
+	//if the question is a multiple choice question drawn from the questionbank
 	public void initMultipleChoice() {
 		bg = new ButtonGroup();
 		question = new JTextArea();

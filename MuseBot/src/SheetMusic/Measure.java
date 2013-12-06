@@ -2,6 +2,9 @@ package SheetMusic;
 import java.util.ArrayList;
 import java.util.List;
 
+//THIS CLASS HAS A LIST OF NOTES AND METHODS TO GENERATE RANDOM MEASURES
+//@author MICHAEL WAYMAN
+
 public class Measure {
 	List<Note> notes;
 	boolean useDot;
@@ -41,6 +44,7 @@ public class Measure {
 	}
 	
 	//Generates a random measure based on a time signature given in a string format
+	//use rests only
 		public Measure generateRandomRestMeasure(String timeSignature) {
 			Measure m = new Measure();
 			//while there aren't enough notes in the measure keep adding random notes
@@ -58,6 +62,7 @@ public class Measure {
 			return m;
 		}
 		//Generates a random measure based on a time signature given in a string format
+		//use dots only
 		public Measure generateRandomDotsMeasure(String timeSignature) {
 			Measure m = new Measure();
 			//while there aren't enough notes in the measure keep adding random notes
