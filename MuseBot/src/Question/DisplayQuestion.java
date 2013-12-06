@@ -1,4 +1,5 @@
-package Quizzes;
+package Question;
+
 
 import javax.swing.*;
 

@@ -14,7 +14,6 @@ import Lesson.LessonPanel;
 import Practice.Practice;
 import Practice.PracticeListener;
 
-
 /**
  * 
  * @author Michael Wayman
